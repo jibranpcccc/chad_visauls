@@ -1,0 +1,60 @@
+{
+  "totalFrames": 600,
+  "totalSec": 19.99,
+  "turns": [
+    {
+      "id": "l1",
+      "speaker": "narr",
+      "text": "Imagine if every white lie lit you up like the sun.",
+      "startSec": 0.1,
+      "endSec": 2.423,
+      "startF": 3,
+      "endF": 73
+    },
+    {
+      "id": "l2",
+      "speaker": "mom",
+      "text": "Leo... did you eat all my warm cookies?",
+      "startSec": 2.543,
+      "endSec": 4.602,
+      "startF": 76,
+      "endF": 138
+    },
+    {
+      "id": "l3",
+      "speaker": "leo",
+      "text": "What? No! I wasn't even near the kitchen.",
+      "startSec": 4.702,
+      "endSec": 8.466,
+      "startF": 141,
+      "endF": 254
+    },
+    {
+      "id": "l4",
+      "speaker": "narr",
+      "text": "Small fib, soft lantern. Big lie? Whole street sees it.",
+      "startSec": 8.686,
+      "endSec": 13.546,
+      "startF": 261,
+      "endF": 406
+    },
+    {
+      "id": "l5",
+      "speaker": "leo",
+      "text": "Okay, maybe one tiny bite! Totally not five!",
+      "startSec": 13.686,
+      "endSec": 17.022,
+      "startF": 411,
+      "endF": 511
+    },
+    {
+      "id": "l6",
+      "speaker": "mom",
+      "text": "Leo, you're brighter than the streetlight outside.",
+      "startSec": 17.202,
+      "endSec": 19.443,
+      "startF": 516,
+      "endF": 583
+    }
+  ]
+}

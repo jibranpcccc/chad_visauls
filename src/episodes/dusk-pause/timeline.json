@@ -1,0 +1,48 @@
+{
+  "slug": "dusk-pause",
+  "title": "WHAT IF ONE CLICK FROZE TIME?",
+  "fps": 30,
+  "total": 566,
+  "segments": [
+    { "shot": "Sh1", "a": 0, "b": 54, "t0": 0, "t1": 54, "line": "One click pauses the entire room." },
+    { "shot": "Sh2", "a": 54, "b": 106, "t0": 0, "t1": 52, "line": "Except for you.", "look": "pause" },
+    { "shot": "Sh3", "a": 106, "b": 156, "t0": 0, "t1": 50, "line": "Wait, the client needs those numbers right—" },
+    { "shot": "Sh3", "a": 156, "b": 168, "t0": 50, "t1": 62, "line": "PAUSED", "look": "pause" },
+    { "shot": "Sh4", "a": 168, "b": 220, "t0": 0, "t1": 52, "line": "Relax. Nobody moves until I finish my coffee.", "look": "pause" },
+    { "shot": "Sh5", "a": 220, "b": 276, "t0": 0, "t1": 56, "line": "Until I finish my coffee.", "look": "pause" },
+    { "shot": "Sh6", "a": 276, "b": 345, "t0": 0, "t1": 69, "line": "Zero friction. Frozen clocks. Only one tiny glitch." },
+    { "shot": "Sh7", "a": 345, "b": 392, "t0": 0, "t1": 47, "line": "Only one tiny glitch.", "look": "pause" },
+    { "shot": "Sh8", "a": 392, "b": 423, "t0": 0, "t1": 31, "line": "" },
+    { "shot": "Sh9", "a": 423, "b": 474, "t0": 0, "t1": 51, "line": "Cool trick. Wait, why did you steal my mug?" },
+    { "shot": "Sh10", "a": 474, "b": 518, "t0": 0, "t1": 44, "line": "Wait, why did you steal my mug?" },
+    { "shot": "Sh11", "a": 518, "b": 566, "t0": 0, "t1": 48, "line": "How are you still moving?!" }
+  ],
+  "shots": [
+    { "id": "Sh1", "first": 0, "len": 54, "key": 28 },
+    { "id": "Sh2", "first": 54, "len": 52, "key": 40 },
+    { "id": "Sh3", "first": 106, "len": 62, "key": 56 },
+    { "id": "Sh4", "first": 168, "len": 52, "key": 28 },
+    { "id": "Sh5", "first": 220, "len": 56, "key": 34 },
+    { "id": "Sh6", "first": 276, "len": 69, "key": 52 },
+    { "id": "Sh7", "first": 345, "len": 47, "key": 24 },
+    { "id": "Sh8", "first": 392, "len": 31, "key": 20 },
+    { "id": "Sh9", "first": 423, "len": 51, "key": 28 },
+    { "id": "Sh10", "first": 474, "len": 44, "key": 24 },
+    { "id": "Sh11", "first": 518, "len": 48, "key": 22 }
+  ],
+  "fx": [
+    { "kind": "flash", "f": 88, "color": "#7FD4FF", "o": 0.68 },
+    { "kind": "flash", "f": 156, "color": "#7FD4FF", "o": 0.78 },
+    { "kind": "flash", "f": 320, "color": "#FF5A4A", "o": 0.5 },
+    { "kind": "shake", "f": 320, "len": 8, "amp": 12 },
+    { "kind": "shake", "f": 520, "len": 10, "amp": 16 }
+  ],
+  "audio": {
+    "voice": "dusk-pause/voice.mp3",
+    "sfx": "dusk-pause/sfx.mp3",
+    "music": "dusk-pause/music.mp3",
+    "voiceVol": 1,
+    "sfxVol": 0.85,
+    "musicVol": 0.48
+  }
+}

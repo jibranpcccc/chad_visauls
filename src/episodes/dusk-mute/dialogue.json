@@ -1,0 +1,69 @@
+{
+  "totalFrames": 558,
+  "totalSec": 18.61,
+  "turns": [
+    {
+      "id": "l1",
+      "speaker": "narr",
+      "text": "Imagine a single button that mutes anyone in real life.",
+      "startSec": 0.1,
+      "endSec": 2.679,
+      "startF": 3,
+      "endF": 80
+    },
+    {
+      "id": "l2",
+      "speaker": "sis",
+      "text": "And then she literally stole my seat, wait are you even\u2014",
+      "startSec": 2.779,
+      "endSec": 4.796,
+      "startF": 83,
+      "endF": 144
+    },
+    {
+      "id": "l3",
+      "speaker": "mo",
+      "text": "Finally. Pure, golden silence.",
+      "startSec": 5.016,
+      "endSec": 6.997,
+      "startF": 150,
+      "endF": 210
+    },
+    {
+      "id": "l4",
+      "speaker": "narr",
+      "text": "No spoilers. No whining. Until someone tries to warn you.",
+      "startSec": 7.237,
+      "endSec": 11.918,
+      "startF": 217,
+      "endF": 358
+    },
+    {
+      "id": "l5",
+      "speaker": "sis",
+      "text": "Mo! Watch out, loose step!",
+      "startSec": 12.018,
+      "endSec": 14.567,
+      "startF": 361,
+      "endF": 437
+    },
+    {
+      "id": "l6",
+      "speaker": "sis",
+      "text": "Unmuted. Miss my voice yet?",
+      "startSec": 14.927,
+      "endSec": 17.215,
+      "startF": 448,
+      "endF": 516
+    },
+    {
+      "id": "l7",
+      "speaker": "mo",
+      "text": "Put it back on mute.",
+      "startSec": 17.335,
+      "endSec": 18.065,
+      "startF": 520,
+      "endF": 542
+    }
+  ]
+}

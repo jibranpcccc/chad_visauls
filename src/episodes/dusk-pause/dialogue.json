@@ -1,0 +1,60 @@
+{
+  "totalFrames": 566,
+  "totalSec": 18.86,
+  "turns": [
+    {
+      "id": "l1",
+      "speaker": "narr",
+      "text": "One click pauses the entire room. Except for you.",
+      "startSec": 0.1,
+      "endSec": 3.505,
+      "startF": 3,
+      "endF": 105
+    },
+    {
+      "id": "l2",
+      "speaker": "nova",
+      "text": "Wait, the client needs those numbers right\u2014",
+      "startSec": 3.605,
+      "endSec": 5.455,
+      "startF": 108,
+      "endF": 164
+    },
+    {
+      "id": "l3",
+      "speaker": "suit",
+      "text": "Relax. Nobody moves until I finish my coffee.",
+      "startSec": 5.675,
+      "endSec": 9.033,
+      "startF": 170,
+      "endF": 271
+    },
+    {
+      "id": "l4",
+      "speaker": "narr",
+      "text": "Zero friction. Frozen clocks. Only one tiny glitch.",
+      "startSec": 9.253,
+      "endSec": 13.988,
+      "startF": 278,
+      "endF": 420
+    },
+    {
+      "id": "l5",
+      "speaker": "nova",
+      "text": "Cool trick. Wait, why did you steal my mug?",
+      "startSec": 14.168,
+      "endSec": 17.219,
+      "startF": 425,
+      "endF": 517
+    },
+    {
+      "id": "l6",
+      "speaker": "suit",
+      "text": "How are you still moving?!",
+      "startSec": 17.319,
+      "endSec": 18.308,
+      "startF": 520,
+      "endF": 549
+    }
+  ]
+}

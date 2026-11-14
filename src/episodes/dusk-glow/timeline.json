@@ -1,0 +1,50 @@
+{
+  "slug": "dusk-glow",
+  "title": "WHAT IF EVERY LIE MADE YOU GLOW?",
+  "fps": 30,
+  "total": 600,
+  "segments": [
+    { "shot": "Sh1", "a": 0, "b": 38, "t0": 0, "t1": 38, "line": "Imagine if every white lie" },
+    { "shot": "Sh2", "a": 38, "b": 74, "t0": 0, "t1": 36, "line": "lit you up like the sun." },
+    { "shot": "Sh3", "a": 74, "b": 139, "t0": 0, "t1": 65, "line": "Leo... did you eat all my warm cookies?" },
+    { "shot": "Sh4", "a": 139, "b": 169, "t0": 0, "t1": 30, "line": "What? No!" },
+    { "shot": "Sh4", "a": 169, "b": 182, "t0": 30, "t1": 43, "line": "I wasn't even near—", "look": "glow" },
+    { "shot": "Sh5", "a": 182, "b": 222, "t0": 0, "t1": 40, "line": "the kitchen.", "look": "glow" },
+    { "shot": "Sh6", "a": 222, "b": 259, "t0": 0, "t1": 37, "line": "the kitchen.", "look": "glow" },
+    { "shot": "Sh7", "a": 259, "b": 330, "t0": 0, "t1": 71, "line": "Small fib, soft lantern.", "look": "glow" },
+    { "shot": "Sh8", "a": 330, "b": 372, "t0": 0, "t1": 42, "line": "Big lie? Whole street sees it." },
+    { "shot": "Sh9", "a": 372, "b": 409, "t0": 0, "t1": 37, "line": "Whole street sees it.", "look": "glow" },
+    { "shot": "Sh10", "a": 409, "b": 466, "t0": 0, "t1": 57, "line": "Okay, maybe one tiny bite!", "look": "glow" },
+    { "shot": "Sh11", "a": 466, "b": 514, "t0": 0, "t1": 48, "line": "Totally not five!", "look": "glow" },
+    { "shot": "Sh12", "a": 514, "b": 556, "t0": 0, "t1": 42, "line": "Leo, you're brighter than—" },
+    { "shot": "Sh13", "a": 556, "b": 600, "t0": 0, "t1": 44, "line": "the streetlight outside.", "look": "glow" }
+  ],
+  "shots": [
+    { "id": "Sh1", "first": 0, "len": 38, "key": 20 },
+    { "id": "Sh2", "first": 38, "len": 36, "key": 22 },
+    { "id": "Sh3", "first": 74, "len": 65, "key": 32 },
+    { "id": "Sh4", "first": 139, "len": 43, "key": 34 },
+    { "id": "Sh5", "first": 182, "len": 40, "key": 20 },
+    { "id": "Sh6", "first": 222, "len": 37, "key": 20 },
+    { "id": "Sh7", "first": 259, "len": 71, "key": 36 },
+    { "id": "Sh8", "first": 330, "len": 42, "key": 28 },
+    { "id": "Sh9", "first": 372, "len": 37, "key": 20 },
+    { "id": "Sh10", "first": 409, "len": 57, "key": 30 },
+    { "id": "Sh11", "first": 466, "len": 48, "key": 28 },
+    { "id": "Sh12", "first": 514, "len": 42, "key": 22 },
+    { "id": "Sh13", "first": 556, "len": 44, "key": 24 }
+  ],
+  "fx": [
+    { "kind": "flash", "f": 169, "color": "#FFE27A", "o": 0.78 },
+    { "kind": "flash", "f": 482, "color": "#FFF0A8", "o": 0.85 },
+    { "kind": "shake", "f": 482, "len": 10, "amp": 15 }
+  ],
+  "audio": {
+    "voice": "dusk-glow/voice.mp3",
+    "sfx": "dusk-glow/sfx.mp3",
+    "music": "dusk-glow/music.mp3",
+    "voiceVol": 1,
+    "sfxVol": 0.85,
+    "musicVol": 0.48
+  }
+}

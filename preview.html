@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>chad_visauls — 5 Unique Animation Styles (15–20s)</title>
+  <title>Dusk Studio Samples — Multi-Character Narration &amp; Dialogue</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      background: #07090e;
-      color: #f8fafc;
+      background: #0b0816;
+      color: #f6efe3;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       min-height: 100vh;
       padding: 28px;
@@ -21,113 +21,111 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      border-bottom: 1px solid #1e293b;
+      border-bottom: 1px solid #241e38;
       padding-bottom: 18px;
     }
-    h1 { font-size: 26px; font-weight: 900; }
-    h1 span { color: #22d3ee; }
+    h1 { font-size: 26px; font-weight: 900; letter-spacing: -0.02em; }
+    h1 span { color: #ff8a3d; }
     .controls { display: flex; flex-wrap: wrap; gap: 8px; }
     button {
-      background: #121826;
-      color: #cbd5e1;
-      border: 1px solid #293548;
+      background: #171228;
+      color: #dfd5c5;
+      border: 1px solid #2e2646;
       padding: 8px 14px;
       border-radius: 10px;
       font-size: 13px;
       font-weight: 700;
       cursor: pointer;
     }
-    button.active { background: #22d3ee; color: #07090e; border-color: #22d3ee; }
+    button.active { background: #ff8a3d; color: #0b0816; border-color: #ff8a3d; }
     .grid {
       max-width: 1480px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
-      gap: 22px;
+      grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
+      gap: 24px;
     }
-    .grid.single { grid-template-columns: 1fr; max-width: 1080px; }
+    .grid.single { grid-template-columns: 1fr; max-width: 1100px; }
     .card {
-      background: #0f1420;
-      border: 1px solid #1e293b;
+      background: #130f22;
+      border: 1px solid #241e38;
       border-radius: 16px;
       overflow: hidden;
     }
     .card.hidden { display: none; }
     .card-head {
-      padding: 13px 16px;
+      padding: 14px 18px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid #1e293b;
-      font-size: 14px;
-      font-weight: 700;
+      border-bottom: 1px solid #241e38;
+      font-size: 15px;
+      font-weight: 800;
     }
     .badge {
-      font-family: monospace;
+      font-family: ui-monospace, SFMono-Regular, monospace;
       font-size: 11px;
       padding: 4px 10px;
       border-radius: 999px;
-      background: rgba(34, 211, 238, 0.14);
-      color: #22d3ee;
+      background: rgba(255, 138, 61, 0.16);
+      color: #ffb15a;
     }
     video { width: 100%; aspect-ratio: 16 / 9; background: #000; display: block; }
-    .desc { padding: 12px 16px; font-size: 13px; color: #94a3b8; line-height: 1.45; }
+    .desc { padding: 13px 18px; font-size: 13.5px; color: #b7adc2; line-height: 1.5; }
+    .cast { color: #f6efe3; font-weight: 600; }
   </style>
 </head>
 <body>
   <header>
     <div>
-      <h1><span>chad_visauls</span> — 5 Unique Animation Styles (15–20s Each)</h1>
-      <p style="color:#94a3b8;font-size:14px;margin-top:4px;">5 distinct concepts, voices, music beds, SFX &amp; word-locked subtitles</p>
+      <h1><span>Dusk Studio</span> — Refined Dialogue &amp; Narration Samples (15–20s)</h1>
+      <p style="color:#9d92ac;font-size:14px;margin-top:4px;">Real defineEpisode() shots · Multi-voice narration + 2-person dialogue · Lip-synced acting &amp; rim lighting</p>
     </div>
     <div class="controls">
-      <button class="active" data-view="all">All 5 Grid</button>
-      <button data-view="s1">1. What-If Dusk</button>
-      <button data-view="s2">2. Storybook Bees</button>
-      <button data-view="s3">3. RepoChad GPS</button>
-      <button data-view="s4">4. Byte Forensics 3nm</button>
-      <button data-view="s5">5. Paper Flamingo</button>
+      <button class="active" data-view="all">All Samples</button>
+      <button data-view="mute">1. Mute Anyone</button>
+      <button data-view="pause">2. Froze Time</button>
+      <button data-view="glow">3. Lie Glow</button>
+      <button data-view="ref">Ref: CopyPaste</button>
     </div>
   </header>
 
   <main id="grid" class="grid">
-    <section class="card" data-card="s1">
-      <div class="card-head"><span>1. What If You Remembered Every Second?</span><span class="badge">18.2s · DUSK STUDIO</span></div>
-      <video controls playsinline poster="out/check_s1.png" src="out/five-s1.mp4"></video>
-      <div class="desc">Multi-character What-If engine (Pip, Mo, Sister, Mum, The Suit) across Study, Kitchen, Rooftop &amp; Schematic sets.</div>
+    <section class="card" data-card="mute">
+      <div class="card-head"><span>1. What If You Could Mute Anyone?</span><span class="badge">18.6s · MO + SISTER + NARRATOR</span></div>
+      <video controls playsinline src="out/dusk-mute.mp4"></video>
+      <div class="desc"><span class="cast">Cast: Mo, Sister, Classmates.</span> Classroom, Kitchen, Bedroom &amp; Stairwell. Real muffled low-pass warning effect when Sister yells over muted state.</div>
     </section>
-    <section class="card" data-card="s2">
-      <div class="card-head"><span>2. How Honeybees Dance to Share GPS</span><span class="badge">18.0s · STORYBOOK TOON</span></div>
-      <video controls playsinline poster="out/check_s2.png" src="out/five-s2.mp4"></video>
-      <div class="desc">Daylight painted world + honeycomb hive with Queen, Scout &amp; Worker bees + cheerful marimba score.</div>
+
+    <section class="card" data-card="pause">
+      <div class="card-head"><span>2. What If One Click Froze Time?</span><span class="badge">18.9s · THE SUIT + NOVA + NARRATOR</span></div>
+      <video controls playsinline src="out/dusk-pause.mp4"></video>
+      <div class="desc"><span class="cast">Cast: The Suit, Nova, Cat.</span> Study, Tabletop freeze macro, Kitchen, Schematic anomaly &amp; Rooftop confrontation.</div>
     </section>
-    <section class="card" data-card="s3">
-      <div class="card-head"><span>3. How GPS Finds You With Light Speed</span><span class="badge">19.7s · REPOCHAD NEON</span></div>
-      <video controls playsinline poster="out/check_s3.png" src="out/five-s3.mp4"></video>
-      <div class="desc">Dark obsidian neon tech explainer: orbiting GPS satellites, 4-sphere trilateration &amp; Einstein relativity fix.</div>
+
+    <section class="card" data-card="glow">
+      <div class="card-head"><span>3. What If Every Lie Made You Glow?</span><span class="badge">20.0s · LEO + MUM + NARRATOR</span></div>
+      <video controls playsinline src="out/dusk-glow.mp4"></video>
+      <div class="desc"><span class="cast">Cast: Leo, Mum, Cat.</span> Tabletop crumbs, Kitchen reactive light bloom, night Bedroom lantern, Schematic meter &amp; Rooftop beacon finale.</div>
     </section>
-    <section class="card" data-card="s4">
-      <div class="card-head"><span>4. Why 3nm Chips Pack Billions of Transistors</span><span class="badge">18.3s · BYTE FORENSICS</span></div>
-      <video controls playsinline poster="out/check_s4.png" src="out/five-s4.mp4"></video>
-      <div class="desc">PCB circuit buses, 4-tower benchmark arena, thermal thermometer &amp; micro-bot engineers inspecting FinFETs.</div>
-    </section>
-    <section class="card" data-card="s5">
-      <div class="card-head"><span>5. Why Flamingos Are Actually Born Grey</span><span class="badge">18.0s · PAPER EDITORIAL</span></div>
-      <video controls playsinline poster="out/check_s5.png" src="out/five-s5.mp4"></video>
-      <div class="desc">Warm cream paper-cut editorial with British narration, brine shrimp magnifier &amp; grey-to-coral transformation.</div>
+
+    <section class="card" data-card="ref">
+      <div class="card-head"><span>Reference: What If You Could Copy &amp; Paste?</span><span class="badge">23.2s · ENGINE REFERENCE</span></div>
+      <video controls playsinline src="out/copy-paste.mp4"></video>
+      <div class="desc"><span class="cast">Engine Baseline:</span> Original Pip / Mo Dusk Studio episode rendered on this setup.</div>
     </section>
   </main>
 
   <script>
-    const grid = document.getElementById("grid");
-    const cards = document.querySelectorAll("[data-card]");
-    document.querySelectorAll("[data-view]").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        document.querySelectorAll("[data-view]").forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
+    const grid = document.getElementById('grid');
+    const cards = [...document.querySelectorAll('.card')];
+    document.querySelectorAll('button[data-view]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('button[data-view]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
         const v = btn.dataset.view;
-        grid.classList.toggle("single", v !== "all");
-        cards.forEach((c) => c.classList.toggle("hidden", v !== "all" && c.dataset.card !== v));
+        grid.classList.toggle('single', v !== 'all');
+        cards.forEach(c => c.classList.toggle('hidden', v !== 'all' && c.dataset.card !== v));
       });
     });
   </script>

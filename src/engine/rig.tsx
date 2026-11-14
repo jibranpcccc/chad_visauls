@@ -29,9 +29,9 @@ export type Look = {
   shoe: string;
   face: string;
   hair: string;
-  extra?: 'hood' | 'curls' | 'bunches' | 'bob' | 'suit';
+  extra?: 'hood' | 'curls' | 'bunches' | 'bob' | 'suit' | 'cap';
 };
-export type CastName = 'pip' | 'pipHood' | 'pipInk' | 'mo' | 'sis' | 'mom' | 'suit';
+export type CastName = 'pip' | 'pipHood' | 'pipInk' | 'mo' | 'sis' | 'mom' | 'suit' | 'leo' | 'nova';
 export const LOOKS: Record<CastName, Look> = {
   // A: Pip as built
   pip: { skin: C.skin, skinShade: C.skinShade, hand: C.skin, jacket: C.jacket, jacketShade: C.jacketShade, accent: C.jacketShade, limb: C.limb, line: C.ink, shoe: C.shoe, face: C.ink, hair: C.ink },
@@ -46,6 +46,9 @@ export const LOOKS: Record<CastName, Look> = {
   sis: { skin: C.skin, skinShade: C.skinShade, hand: C.skin, jacket: '#3E8C86', jacketShade: '#2F6E69', accent: '#F28C6A', limb: '#3A3446', line: '#14121C', shoe: '#F28C6A', face: C.ink, hair: '#3A2620', extra: 'bunches' },
   mom: { skin: C.skin, skinShade: C.skinShade, hand: C.skin, jacket: '#8A5A6A', jacketShade: '#704858', accent: '#E9C46A', limb: '#3A3446', line: '#14121C', shoe: '#5A4A6A', face: C.ink, hair: '#5A3226', extra: 'bob' },
   suit: { skin: '#D9C6AE', skinShade: '#C2AE96', hand: '#D9C6AE', jacket: '#2B2F3A', jacketShade: '#20232C', accent: '#A8323E', limb: '#2B2F3A', line: '#0E0F14', shoe: '#14151A', face: C.ink, hair: '#17141A', extra: 'suit' },
+  // Leo: rust pullover & slate cap; Nova: deep indigo knitwear & warm copper hair
+  leo: { skin: '#D7A37E', skinShade: '#BD8966', hand: '#D7A37E', jacket: '#B8563E', jacketShade: '#94412E', accent: '#F2C166', limb: '#2C3142', line: '#121019', shoe: '#F2C166', face: C.ink, hair: '#231A18', extra: 'cap' },
+  nova: { skin: '#E9C9B1', skinShade: '#CFAF96', hand: '#E9C9B1', jacket: '#32487A', jacketShade: '#25365E', accent: '#7FD4FF', limb: '#222638', line: '#121019', shoe: '#7FD4FF', face: C.ink, hair: '#8D3E2E', extra: 'bob' },
 };
 
 // ---------- the hero ----------
@@ -76,6 +79,7 @@ export type Pose = {
   sway: number; // secondary motion: how far loose things (the hood's drawstrings) swing, degrees-ish
   glint?: number; // 0..1 the eyes light up in the power's colour (set it after poseAt: it isn't interpolated)
   glintColor?: string;
+  talk?: number; // 0..1 mouth-open speech animation for dialogue beats
 };
 
 export const basePose: Pose = {
@@ -219,7 +223,7 @@ export const reachAngle = (pose: Pose, target: P) => {
   return world - pose.tilt;
 };
 
-const Face: React.FC<{ expr: Expr; blink: number; look: number; glasses: number; yaw?: number; ink?: string; glint?: number; glintColor?: string }> = ({ expr, blink, look, glasses, yaw = 0, ink = C.ink, glint = 0, glintColor = '#8FF0FF' }) => {
+const Face: React.FC<{ expr: Expr; blink: number; look: number; glasses: number; yaw?: number; ink?: string; glint?: number; glintColor?: string; talk?: number }> = ({ expr, blink, look, glasses, yaw = 0, ink = C.ink, glint = 0, glintColor = '#8FF0FF', talk = 0 }) => {
   const ex = look * 7;
   const ay = Math.min(1, Math.abs(yaw));
   const farHidden = ay > 0.72;
@@ -276,12 +280,21 @@ const Face: React.FC<{ expr: Expr; blink: number; look: number; glasses: number;
     dizzy: <path d={`M -14 ${mY + 4} Q -7 ${mY - 4} 0 ${mY + 4} Q 7 ${mY + 12} 14 ${mY + 4}`} stroke={ink} strokeWidth={5} fill="none" strokeLinecap="round" />,
     tired: <path d={`M -11 ${mY + 4} Q 0 ${mY} 11 ${mY + 4}`} stroke={ink} strokeWidth={5} fill="none" strokeLinecap="round" />,
   };
+  const mouthNode =
+    talk > 0.08 && expr !== 'shock' ? (
+      <g>
+        <ellipse cx={0} cy={mY + 3} rx={8 + talk * 6} ry={3 + talk * 8} fill={ink} />
+        {talk > 0.45 ? <path d={`M ${-(5 + talk * 3)} ${mY + 1} Q 0 ${mY + 4} ${5 + talk * 3} ${mY + 1}`} stroke="#F6EFE3" strokeWidth={2.5} fill="none" strokeLinecap="round" /> : null}
+      </g>
+    ) : (
+      mouth[expr]
+    );
   return (
     <g transform={`translate(${yaw * 30} 0) scale(${1 - 0.28 * ay} 1)`}>
       {eye(-21)}
       {eye(21)}
       {brows[expr] ? <path d={brows[expr]} stroke={ink} strokeWidth={5} fill="none" strokeLinecap="round" /> : null}
-      {mouth[expr]}
+      {mouthNode}
       {expr === 'shock' || expr === 'oops' ? <path d={`M 52 ${HEAD.y - 30} q 6 10 0 16 q -6 -6 0 -16 Z`} fill="#8FD3FF" /> : null}
       {/* a power lighting the eyes: a soft halo, a bright iris, a white catchlight (none while the lids are shut) */}
       {glint > 0.01 && blink < 0.95
@@ -368,7 +381,7 @@ export const Hero: React.FC<{ pose: Pose; shadow?: number; rimId?: string; look?
     <g transform={`rotate(${pose.tilt}) rotate(${pose.headTilt} 0 ${HEAD.y + 40})`}>
       <circle cx={HEAD.x} cy={HEAD.y} r={HEAD.r} fill={L.skin} stroke={L.line} strokeWidth={4} />
       <path d={`M ${HEAD.x + 14} ${HEAD.y + 58} A ${HEAD.r} ${HEAD.r} 0 0 0 ${HEAD.x + 60} ${HEAD.y + 14} A 70 70 0 0 1 ${HEAD.x + 14} ${HEAD.y + 58} Z`} fill={L.skinShade} />
-      {L.extra === 'bunches' || L.extra === 'bob' || L.extra === 'suit' ? null : (
+      {L.extra === 'bunches' || L.extra === 'bob' || L.extra === 'suit' || L.extra === 'cap' ? null : (
         <path transform={`translate(${-pose.yaw * 16} 0)`} d={`M -6 ${HEAD.y - 60} q 10 -26 30 -18 q -16 2 -14 16 q -8 -10 -16 2 Z`} fill={L.hair} />
       )}
       {L.extra === 'bunches' ? (
@@ -398,7 +411,14 @@ export const Hero: React.FC<{ pose: Pose; shadow?: number; rimId?: string; look?
         // short combed-back hair with a hard side parting
         <path transform={`translate(${-pose.yaw * 14} 0)`} d={`M -60 ${HEAD.y - 18} Q -64 ${HEAD.y - 70} 4 ${HEAD.y - 68} Q 64 ${HEAD.y - 64} 60 ${HEAD.y - 18} Q 52 ${HEAD.y - 44} 18 ${HEAD.y - 46} L 12 ${HEAD.y - 54} L 6 ${HEAD.y - 46} Q -44 ${HEAD.y - 46} -60 ${HEAD.y - 18} Z`} fill={L.hair} />
       ) : null}
-      <Face expr={pose.expr} blink={pose.blink} look={pose.look} glasses={pose.glasses} yaw={pose.yaw} ink={L.face} glint={pose.glint} glintColor={pose.glintColor} />
+      {L.extra === 'cap' ? (
+        // snug beanie/cap with a crisp front/side brim
+        <g transform={`translate(${-pose.yaw * 8} 0)`}>
+          <path d={`M -62 ${HEAD.y - 18} Q -60 ${HEAD.y - 78} 0 ${HEAD.y - 78} Q 60 ${HEAD.y - 78} 62 ${HEAD.y - 18} Q 0 ${HEAD.y - 28} -62 ${HEAD.y - 18} Z`} fill="#2C3142" stroke={L.line} strokeWidth={4} />
+          <path d={`M ${pose.yaw >= 0 ? -10 : -78} ${HEAD.y - 24} Q ${pose.yaw * 28} ${HEAD.y - 36} ${pose.yaw >= 0 ? 78 : 10} ${HEAD.y - 18} Q ${pose.yaw * 18} ${HEAD.y - 10} ${pose.yaw >= 0 ? -10 : -78} ${HEAD.y - 24} Z`} fill={L.accent} stroke={L.line} strokeWidth={4} strokeLinejoin="round" />
+        </g>
+      ) : null}
+      <Face expr={pose.expr} blink={pose.blink} look={pose.look} glasses={pose.glasses} yaw={pose.yaw} ink={L.face} glint={pose.glint} glintColor={pose.glintColor} talk={pose.talk} />
       {L.extra === 'curls'
         ? [-150, -125, -100, -78, -55, -30].map((deg, k) => {
             const a = (deg * Math.PI) / 180;
