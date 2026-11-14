@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
     inputs:
       composition:
-        description: "Remotion composition ID to render"
+        description: "Remotion composition to render (or 'all' for all 3 in parallel)"
         required: true
-        default: "AllStyles-Reel"
+        default: "all"
         type: choice
         options:
-          - AllStyles-Reel
+          - all
           - Style1-WhatIf-SVG
           - Style2-Cartoon3D-Toon
           - Style3-RepoChad-Neon
@@ -17,6 +17,17 @@ on:
 jobs:
   render:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - id: Style1-WhatIf-SVG
+            out: style1-whatif.mp4
+          - id: Style2-Cartoon3D-Toon
+            out: style2-cartoon3d.mp4
+          - id: Style3-RepoChad-Neon
+            out: style3-repochad.mp4
+    if: ${{ github.event.inputs.composition == 'all' || github.event.inputs.composition == '' || github.event.inputs.composition == matrix.id }}
     steps:
       - uses: actions/checkout@v4
 
@@ -28,14 +39,14 @@ jobs:
       - name: Install dependencies
         run: npm ci || npm install
 
-      - name: Render ${{ github.event.inputs.composition || 'AllStyles-Reel' }}
+      - name: Render ${{ matrix.id }}
         run: |
           mkdir -p out
-          npx remotion render src/index.ts "${{ github.event.inputs.composition || 'AllStyles-Reel' }}" "out/${{ github.event.inputs.composition || 'AllStyles-Reel' }}.mp4" --codec h264 --crf 18
+          npx remotion render src/index.ts "${{ matrix.id }}" "out/${{ matrix.out }}" --codec h264 --crf 18
 
-      - name: Upload rendered MP4
+      - name: Upload ${{ matrix.out }}
         uses: actions/upload-artifact@v4
         with:
-          name: rendered-video
-          path: out/*.mp4
+          name: ${{ matrix.out }}
+          path: out/${{ matrix.out }}
           retention-days: 14

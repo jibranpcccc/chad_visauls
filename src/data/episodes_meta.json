@@ -1,0 +1,17 @@
+{
+  "style1": {
+    "duration": 60.0,
+    "frames": 1800,
+    "words": 124
+  },
+  "style2": {
+    "duration": 61.55,
+    "frames": 1847,
+    "words": 158
+  },
+  "style3": {
+    "duration": 62.56,
+    "frames": 1877,
+    "words": 143
+  }
+}
