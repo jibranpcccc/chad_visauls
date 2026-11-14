@@ -1,21 +1,24 @@
 import React from "react";
-import { Composition, Series } from "remotion";
+import { Audio, Composition, Series, staticFile } from "remotion";
 import { WhatIfStickStyle } from "./styles/WhatIfStickStyle";
 import { Cartoon3DToonStyle } from "./styles/Cartoon3DToonStyle";
 import { RepoChadNeonStyle } from "./styles/RepoChadNeonStyle";
 
 const AllStylesReel: React.FC = () => (
-  <Series>
-    <Series.Sequence durationInFrames={150}>
-      <WhatIfStickStyle />
-    </Series.Sequence>
-    <Series.Sequence durationInFrames={150}>
-      <Cartoon3DToonStyle />
-    </Series.Sequence>
-    <Series.Sequence durationInFrames={150}>
-      <RepoChadNeonStyle />
-    </Series.Sequence>
-  </Series>
+  <>
+    <Audio src={staticFile("audio/all-styles-master.wav")} />
+    <Series>
+      <Series.Sequence durationInFrames={150}>
+        <WhatIfStickStyle />
+      </Series.Sequence>
+      <Series.Sequence durationInFrames={150}>
+        <Cartoon3DToonStyle />
+      </Series.Sequence>
+      <Series.Sequence durationInFrames={150}>
+        <RepoChadNeonStyle />
+      </Series.Sequence>
+    </Series>
+  </>
 );
 
 export const RemotionRoot: React.FC = () => (

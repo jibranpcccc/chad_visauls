@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>chad_visauls — 3-Style Animation Showcase</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #07090e;
+      color: #f8fafc;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      min-height: 100vh;
+      padding: 28px;
+    }
+    header {
+      max-width: 1400px;
+      margin: 0 auto 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px solid #1e293b;
+      padding-bottom: 18px;
+    }
+    h1 { font-size: 26px; font-weight: 900; letter-spacing: -0.5px; }
+    h1 span { color: #22d3ee; }
+    .controls { display: flex; flex-wrap: wrap; gap: 10px; }
+    button {
+      background: #121826;
+      color: #cbd5e1;
+      border: 1px solid #293548;
+      padding: 9px 16px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    button:hover { border-color: #22d3ee; color: #fff; }
+    button.active { background: #22d3ee; color: #07090e; border-color: #22d3ee; }
+    .grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 24px;
+    }
+    .grid.single { grid-template-columns: 1fr; max-width: 1120px; }
+    .card {
+      background: #0f1420;
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .card.hidden { display: none; }
+    .card-head {
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #1e293b;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .badge {
+      font-family: monospace;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(34, 211, 238, 0.12);
+      color: #22d3ee;
+    }
+    .stage {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      overflow: hidden;
+    }
+    .stage svg { width: 100%; height: 100%; display: block; }
+    .video-section {
+      max-width: 1400px;
+      margin: 28px auto 0;
+      background: #0f1420;
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      padding: 20px;
+    }
+    .video-section h2 { font-size: 18px; margin-bottom: 14px; }
+    video { width: 100%; max-height: 540px; border-radius: 12px; background: #000; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1><span>chad_visauls</span> — Multi-Style HTML Preview</h1>
+      <p style="color:#94a3b8;font-size:14px;margin-top:4px;">Live 60fps HTML/SVG animations + rendered Remotion MP4</p>
+    </div>
+    <div class="controls">
+      <button class="active" data-view="all">All 3 Grid</button>
+      <button data-view="s1">1. What-If SVG</button>
+      <button data-view="s2">2. Cartoon 3D Toon</button>
+      <button data-view="s3">3. RepoChad Neon</button>
+      <button id="togglePlay">Pause</button>
+      <button id="restartBtn">Restart</button>
+      <button id="soundBtn">Play Sound</button>
+    </div>
+  </header>
+  <audio id="masterAudio" src="public/audio/all-styles-master.wav" preload="auto"></audio>
+
+  <main id="grid" class="grid">
+    <!-- STYLE 1: WHAT-IF SVG -->
+    <section class="card" data-card="s1">
+      <div class="card-head">
+        <span>Style 1: Dusk-Lit What-If SVG</span>
+        <span class="badge">2D SVG RIG</span>
+      </div>
+      <div class="stage">
+        <svg viewBox="0 0 1920 1080">
+          <defs>
+            <radialGradient id="lampGlow" cx="76%" cy="34%" r="48%">
+              <stop offset="0%" stop-color="#ffb86c" stop-opacity="0.55" />
+              <stop offset="55%" stop-color="#ff7b54" stop-opacity="0.14" />
+              <stop offset="100%" stop-color="#141824" stop-opacity="0" />
+            </radialGradient>
+            <linearGradient id="duskWall" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1b2136" />
+              <stop offset="100%" stop-color="#262b44" />
+            </linearGradient>
+          </defs>
+          <rect width="1920" height="1080" fill="url(#duskWall)" />
+          <polygon points="0,780 1920,780 1920,1080 0,1080" fill="#181b2c" />
+          <line x1="0" y1="780" x2="1920" y2="780" stroke="#363e63" stroke-width="4" />
+          <g transform="translate(210, 190)">
+            <rect width="340" height="390" rx="8" fill="#2c3a67" stroke="#10131f" stroke-width="10" />
+            <rect x="14" y="14" width="312" height="362" fill="#465896" opacity="0.55" />
+            <circle cx="255" cy="85" r="36" fill="#ffd9a0" opacity="0.85" />
+            <line x1="170" y1="0" x2="170" y2="390" stroke="#10131f" stroke-width="8" />
+            <line x1="0" y1="195" x2="340" y2="195" stroke="#10131f" stroke-width="8" />
+          </g>
+          <rect width="1920" height="1080" fill="url(#lampGlow)" />
+          <g transform="translate(1420, 420)">
+            <rect x="-8" y="0" width="16" height="360" fill="#0e111a" />
+            <polygon points="-70,0 70,0 45,-75 -45,-75" fill="#ffb86c" stroke="#0e111a" stroke-width="6" />
+            <ellipse cx="0" cy="360" rx="75" ry="14" fill="#0e111a" />
+          </g>
+          <rect x="1120" y="690" width="440" height="24" rx="6" fill="#3a2e39" stroke="#0e111a" stroke-width="5" />
+          <rect x="1150" y="714" width="20" height="90" fill="#231c24" />
+          <rect x="1510" y="714" width="20" height="90" fill="#231c24" />
+          <g id="s1-cup" transform="translate(1240, 638)">
+            <rect x="0" y="0" width="46" height="52" rx="8" fill="#f4f1ea" stroke="#0e111a" stroke-width="5" />
+            <path d="M46,12 C64,12 64,40 46,40" fill="none" stroke="#f4f1ea" stroke-width="6" />
+          </g>
+          <g id="s1-pip" transform="translate(860, 600)">
+            <line x1="0" y1="-20" x2="0" y2="95" stroke="#f8fafc" stroke-width="14" stroke-linecap="round" />
+            <circle cx="0" cy="-70" r="46" fill="#f8fafc" stroke="#0e111a" stroke-width="6" />
+            <circle cx="-14" cy="-74" r="6" fill="#0e111a" />
+            <circle cx="16" cy="-74" r="6" fill="#0e111a" />
+            <ellipse cx="2" cy="-48" rx="10" ry="12" fill="#0e111a" />
+            <line x1="0" y1="5" x2="-74" y2="-40" stroke="#f8fafc" stroke-width="12" stroke-linecap="round" />
+            <line x1="0" y1="5" x2="74" y2="-40" stroke="#f8fafc" stroke-width="12" stroke-linecap="round" />
+            <line x1="0" y1="95" x2="-40" y2="175" stroke="#f8fafc" stroke-width="13" stroke-linecap="round" />
+            <line x1="0" y1="95" x2="40" y2="175" stroke="#f8fafc" stroke-width="13" stroke-linecap="round" />
+          </g>
+          <g transform="translate(960, 145)">
+            <text x="0" y="0" text-anchor="middle" fill="#ffffff" font-size="62" font-weight="900">WHAT IF GRAVITY STOPPED</text>
+            <text x="0" y="66" text-anchor="middle" fill="#ffb86c" font-size="48" font-weight="800">FOR 3 SECONDS?</text>
+          </g>
+          <g id="s1-badge" transform="translate(460, 320)">
+            <rect x="-150" y="-36" width="300" height="72" rx="16" fill="#ff7b54" />
+            <text x="0" y="10" text-anchor="middle" fill="#141824" font-size="30" font-weight="900">0.00 G DETECTED</text>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- STYLE 2: CARTOON 3D TOON -->
+    <section class="card" data-card="s2">
+      <div class="card-head">
+        <span>Style 2: Cartoon 3D Toon World</span>
+        <span class="badge">THREE.JS + INK</span>
+      </div>
+      <div class="stage">
+        <svg viewBox="0 0 1920 1080">
+          <defs>
+            <linearGradient id="toonSky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#3e7fd2" />
+              <stop offset="100%" stop-color="#b8d0ec" />
+            </linearGradient>
+            <filter id="dofBlur"><feGaussianBlur stdDeviation="5" /></filter>
+          </defs>
+          <rect width="1920" height="1080" fill="url(#toonSky)" />
+          <g id="s2-clouds" fill="#ffffff" opacity="0.88">
+            <ellipse cx="320" cy="190" rx="140" ry="48" />
+            <ellipse cx="390" cy="175" rx="95" ry="52" />
+            <ellipse cx="1450" cy="230" rx="170" ry="54" />
+            <ellipse cx="1540" cy="210" rx="100" ry="50" />
+          </g>
+          <g filter="url(#dofBlur)" opacity="0.85">
+            <rect x="110" y="450" width="180" height="270" fill="#c97a63" stroke="#030303" stroke-width="6" />
+            <polygon points="90,450 200,360 310,450" fill="#7c4234" stroke="#030303" stroke-width="6" />
+            <rect x="340" y="490" width="150" height="230" fill="#e2c799" stroke="#030303" stroke-width="6" />
+            <rect x="1440" y="460" width="190" height="260" fill="#d99b66" stroke="#030303" stroke-width="6" />
+            <polygon points="1420,460 1535,375 1650,460" fill="#8b4738" stroke="#030303" stroke-width="6" />
+          </g>
+          <rect x="0" y="790" width="1920" height="290" fill="#467eb8" />
+          <line x1="0" y1="790" x2="1920" y2="790" stroke="#030303" stroke-width="6" />
+          <g id="s2-bridge">
+            <rect x="180" y="685" width="1560" height="44" rx="8" fill="#b87c4c" stroke="#030303" stroke-width="7" />
+            <line x1="280" y1="685" x2="280" y2="420" stroke="#2f3542" stroke-width="18" />
+            <line x1="1640" y1="685" x2="1640" y2="420" stroke="#2f3542" stroke-width="18" />
+            <path d="M 280,430 Q 960,640 1640,430" fill="none" stroke="#1e272e" stroke-width="8" />
+          </g>
+          <g id="s2-cast">
+            <g transform="translate(660, 550)">
+              <rect x="-26" y="25" width="52" height="72" rx="18" fill="#c0392b" stroke="#241726" stroke-width="8" />
+              <rect x="-42" y="-58" width="84" height="78" rx="38" fill="#fde3c8" stroke="#241726" stroke-width="8" />
+              <rect x="-32" y="-108" width="64" height="54" rx="10" fill="#1e272e" stroke="#241726" stroke-width="7" />
+              <circle cx="-14" cy="-22" r="6" fill="#241726" /><circle cx="14" cy="-22" r="6" fill="#241726" />
+              <line x1="-14" y1="97" x2="-18" y2="138" stroke="#241726" stroke-width="10" stroke-linecap="round" />
+              <line x1="14" y1="97" x2="18" y2="138" stroke="#241726" stroke-width="10" stroke-linecap="round" />
+            </g>
+            <g transform="translate(940, 550)">
+              <rect x="-26" y="25" width="52" height="72" rx="18" fill="#c0392b" stroke="#241726" stroke-width="8" />
+              <rect x="-42" y="-58" width="84" height="78" rx="38" fill="#fde3c8" stroke="#241726" stroke-width="8" />
+              <rect x="-32" y="-108" width="64" height="54" rx="10" fill="#1e272e" stroke="#241726" stroke-width="7" />
+              <circle cx="-14" cy="-22" r="6" fill="#241726" /><circle cx="14" cy="-22" r="6" fill="#241726" />
+              <line x1="-14" y1="97" x2="-18" y2="138" stroke="#241726" stroke-width="10" stroke-linecap="round" />
+              <line x1="14" y1="97" x2="18" y2="138" stroke="#241726" stroke-width="10" stroke-linecap="round" />
+            </g>
+            <g transform="translate(1220, 550)">
+              <rect x="-26" y="25" width="52" height="72" rx="18" fill="#c0392b" stroke="#241726" stroke-width="8" />
+              <rect x="-42" y="-58" width="84" height="78" rx="38" fill="#fde3c8" stroke="#241726" stroke-width="8" />
+              <rect x="-32" y="-108" width="64" height="54" rx="10" fill="#1e272e" stroke="#241726" stroke-width="7" />
+              <circle cx="-14" cy="-22" r="6" fill="#241726" /><circle cx="14" cy="-22" r="6" fill="#241726" />
+              <line x1="-14" y1="97" x2="-18" y2="138" stroke="#241726" stroke-width="10" stroke-linecap="round" />
+              <line x1="14" y1="97" x2="18" y2="138" stroke="#241726" stroke-width="10" stroke-linecap="round" />
+            </g>
+          </g>
+          <text x="960" y="190" text-anchor="middle" fill="#ffffff" font-size="64" font-weight="900" stroke="#241726" stroke-width="3">74 SOLDIERS BROKE A BRIDGE</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- STYLE 3: REPOCHAD NEON -->
+    <section class="card" data-card="s3">
+      <div class="card-head">
+        <span>Style 3: RepoChad Obsidian Neon</span>
+        <span class="badge">KINETIC UI</span>
+      </div>
+      <div class="stage" style="background:#0B0D13;padding:24px;display:flex;flex-direction:column;justify-content:space-between;">
+        <div>
+          <div style="display:inline-block;font-family:monospace;font-size:11px;color:#22D3EE;border:1px solid #22D3EE;background:rgba(34,211,238,0.12);padding:4px 12px;border-radius:999px;">● STYLE 3 // REPOCHAD KINETIC</div>
+          <div style="font-size:24px;font-weight:900;margin-top:10px;">RENDER VIDEO <span style="color:#4ADE80;">100% IN CODE</span></div>
+          <div style="font-size:12px;color:#94A3B8;margin-top:4px;">Zero AI video hallucinations · Exact 60fps word-locked sync</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+          <div style="background:#121622;border:1px solid #22D3EE;border-radius:12px;padding:12px;box-shadow:0 0 18px rgba(34,211,238,0.18);">
+            <div style="font-family:monospace;font-size:10px;color:#22D3EE;">01 / SCRIPT</div>
+            <div style="font-size:14px;font-weight:800;margin-top:4px;">Beat Formula</div>
+          </div>
+          <div style="background:#121622;border:1px solid #A855F7;border-radius:12px;padding:12px;box-shadow:0 0 18px rgba(168,85,247,0.18);">
+            <div style="font-family:monospace;font-size:10px;color:#A855F7;">02 / ENGINE</div>
+            <div style="font-size:14px;font-weight:800;margin-top:4px;">Remotion + SVG</div>
+          </div>
+          <div style="background:#121622;border:1px solid #FB923C;border-radius:12px;padding:12px;box-shadow:0 0 18px rgba(251,146,60,0.18);">
+            <div style="font-family:monospace;font-size:10px;color:#FB923C;">03 / CLOUD CI</div>
+            <div style="font-size:14px;font-weight:800;margin-top:4px;">GitHub Actions</div>
+          </div>
+        </div>
+        <div style="background:#121622;border:1px solid #1E293B;border-radius:10px;padding:10px 14px;">
+          <div style="display:flex;justify-content:space-between;font-family:monospace;font-size:11px;margin-bottom:6px;">
+            <span style="color:#4ADE80;">PIPELINE SYNC SCORE</span>
+            <span id="s3-pct">0%</span>
+          </div>
+          <div style="height:8px;background:#1E293B;border-radius:6px;overflow:hidden;">
+            <div id="s3-bar" style="width:0%;height:100%;background:linear-gradient(90deg,#22D3EE,#4ADE80);"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="video-section">
+    <h2>Rendered MP4 Output (out/all-styles.mp4)</h2>
+    <video controls loop playsinline src="out/all-styles.mp4"></video>
+  </section>
+
+  <script>
+    let playing = true;
+    let t = 0;
+
+    const pip = document.getElementById("s1-pip");
+    const cup = document.getElementById("s1-cup");
+    const badge = document.getElementById("s1-badge");
+    const clouds = document.getElementById("s2-clouds");
+    const cast = document.getElementById("s2-cast");
+    const bridge = document.getElementById("s2-bridge");
+    const s3Bar = document.getElementById("s3-bar");
+    const s3Pct = document.getElementById("s3-pct");
+
+    function tick() {
+      if (playing) {
+        t += 0.03;
+        const loop = t % 5;
+
+        // Style 1 float
+        const floatY = Math.sin(t * 2.2) * 55 - 45;
+        const rot = Math.sin(t * 2.8) * 12;
+        pip.setAttribute("transform", `translate(860, ${600 + floatY}) rotate(${rot})`);
+        cup.setAttribute("transform", `translate(1240, ${610 + floatY * 1.1}) rotate(-15)`);
+        const bScale = 0.94 + Math.sin(t * 4) * 0.06;
+        badge.setAttribute("transform", `translate(460, 320) scale(${bScale})`);
+
+        // Style 2 march & bridge bounce
+        const bob = Math.abs(Math.sin(t * 7)) * 18;
+        const dip = Math.sin(t * 7) * 8;
+        clouds.setAttribute("transform", `translate(${(t * 14) % 120}, 0)`);
+        cast.setAttribute("transform", `translate(0, ${-bob + dip})`);
+        bridge.setAttribute("transform", `translate(0, ${dip})`);
+
+        // Style 3 progress bar
+        const pct = Math.min(96, Math.round((loop / 4.2) * 96));
+        s3Bar.style.width = pct + "%";
+        s3Pct.textContent = pct + "%";
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    const masterAudio = document.getElementById("masterAudio");
+    const soundBtn = document.getElementById("soundBtn");
+    soundBtn.addEventListener("click", () => {
+      if (masterAudio.paused) {
+        masterAudio.currentTime = 0;
+        t = 0;
+        playing = true;
+        document.getElementById("togglePlay").textContent = "Pause";
+        masterAudio.play();
+        soundBtn.textContent = "Mute Sound";
+        soundBtn.classList.add("active");
+      } else {
+        masterAudio.pause();
+        soundBtn.textContent = "Play Sound";
+        soundBtn.classList.remove("active");
+      }
+    });
+
+    document.getElementById("togglePlay").addEventListener("click", (e) => {
+      playing = !playing;
+      e.target.textContent = playing ? "Pause" : "Play";
+      if (!playing && !masterAudio.paused) masterAudio.pause();
+    });
+    document.getElementById("restartBtn").addEventListener("click", () => {
+      t = 0;
+      if (!masterAudio.paused) { masterAudio.currentTime = 0; masterAudio.play(); }
+    });
+
+    const grid = document.getElementById("grid");
+    const cards = document.querySelectorAll("[data-card]");
+    document.querySelectorAll("[data-view]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("[data-view]").forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        const v = btn.dataset.view;
+        grid.classList.toggle("single", v !== "all");
+        cards.forEach((c) => {
+          c.classList.toggle("hidden", v !== "all" && c.dataset.card !== v);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
