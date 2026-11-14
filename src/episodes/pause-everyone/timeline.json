@@ -140,5 +140,173 @@
       "t1": 120,
       "line": "holding a cookie you definitely didn't pay for."
     }
-  ]
+  ],
+  "shots": [
+    {
+      "id": "S1",
+      "size": "medium",
+      "key": 54,
+      "len": 109,
+      "first": 8,
+      "line": "Pause your sister mid-argument.",
+      "note": "Pause your sister mid-argument."
+    },
+    {
+      "id": "S2",
+      "size": "medium",
+      "key": 58,
+      "len": 116,
+      "first": 117,
+      "line": "Steal the last cookie right off the plate.",
+      "note": "Steal the last cookie right off the plate."
+    },
+    {
+      "id": "S3",
+      "size": "medium",
+      "key": 64,
+      "len": 129,
+      "first": 233,
+      "line": "Freeze your friend Mo before he spills his drink.",
+      "note": "Freeze your friend Mo before he spills his drink."
+    },
+    {
+      "id": "S4",
+      "size": "medium",
+      "key": 59,
+      "len": 119,
+      "first": 362,
+      "line": "Even pause Mum before she sees the mess.",
+      "note": "Even pause Mum before she sees the mess."
+    },
+    {
+      "id": "S5",
+      "size": "medium",
+      "key": 54,
+      "len": 109,
+      "first": 481,
+      "line": "What if you could pause everyone else on Earth?",
+      "note": "What if you could pause everyone else on Earth?"
+    },
+    {
+      "id": "S6",
+      "size": "medium",
+      "key": 60,
+      "len": 120,
+      "first": 590,
+      "line": "At first, it feels like a superpower.",
+      "note": "At first, it feels like a superpower."
+    },
+    {
+      "id": "S7",
+      "size": "medium",
+      "key": 61,
+      "len": 123,
+      "first": 710,
+      "line": "Walk past The Suit into any restricted room.",
+      "note": "Walk past The Suit into any restricted room."
+    },
+    {
+      "id": "S8",
+      "size": "medium",
+      "key": 61,
+      "len": 122,
+      "first": 833,
+      "line": "Finish your homework while the whole world waits.",
+      "note": "Finish your homework while the whole world waits."
+    },
+    {
+      "id": "S9",
+      "size": "medium",
+      "key": 62,
+      "len": 124,
+      "first": 955,
+      "line": "Nap for six hours on a busy staircase.",
+      "note": "Nap for six hours on a busy staircase."
+    },
+    {
+      "id": "S10",
+      "size": "medium",
+      "key": 68,
+      "len": 136,
+      "first": 1079,
+      "line": "Until you realize one terrifying physics catch.",
+      "note": "Until you realize one terrifying physics catch."
+    },
+    {
+      "id": "S11",
+      "size": "medium",
+      "key": 63,
+      "len": 126,
+      "first": 1215,
+      "line": "If air molecules are frozen solid around you,",
+      "note": "If air molecules are frozen solid around you,"
+    },
+    {
+      "id": "S12",
+      "size": "medium",
+      "key": 66,
+      "len": 133,
+      "first": 1341,
+      "line": "you couldn't breathe, and light couldn't reach your eyes.",
+      "note": "you couldn't breathe, and light couldn't reach your eyes."
+    },
+    {
+      "id": "S13",
+      "size": "medium",
+      "key": 63,
+      "len": 127,
+      "first": 1474,
+      "line": "Every step would feel like slamming into concrete.",
+      "note": "Every step would feel like slamming into concrete."
+    },
+    {
+      "id": "S14",
+      "size": "medium",
+      "key": 55,
+      "len": 110,
+      "first": 1601,
+      "line": "Unpause!",
+      "note": "Unpause!"
+    },
+    {
+      "id": "S15",
+      "size": "medium",
+      "key": 65,
+      "len": 131,
+      "first": 1711,
+      "line": "Now everyone stares as you appear out of thin air,",
+      "note": "Now everyone stares as you appear out of thin air,"
+    },
+    {
+      "id": "S16",
+      "size": "medium",
+      "key": 60,
+      "len": 120,
+      "first": 1842,
+      "line": "holding a cookie you definitely didn't pay for.",
+      "note": "holding a cookie you definitely didn't pay for."
+    }
+  ],
+  "fx": [
+    {
+      "kind": "flash",
+      "color": "#DDF2FF",
+      "o": 0.45,
+      "f": 481
+    },
+    {
+      "kind": "flash",
+      "color": "#FFFFFF",
+      "o": 0.65,
+      "f": 1601
+    }
+  ],
+  "audio": {
+    "voiceVol": 0.9,
+    "sfxVol": 0.5,
+    "musicVol": 0.14,
+    "voice": "pause-everyone/voice.mp3",
+    "sfx": "pause-everyone/sfx.mp3",
+    "music": "pause-everyone/music.mp3"
+  }
 }

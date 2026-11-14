@@ -139,12 +139,37 @@ async def main_async():
     )
     (PUB / "music_raw.wav").unlink(missing_ok=True)
 
+    shots_meta = [
+        {
+            "id": seg["shot"],
+            "size": "medium",
+            "key": max(1, (seg["b"] - seg["a"]) // 2),
+            "len": seg["b"] - seg["a"],
+            "first": seg["a"],
+            "line": seg["line"],
+            "note": seg["line"],
+        }
+        for seg in timeline_segs
+    ]
     timeline = {
         "slug": "pause-everyone",
         "title": "WHAT IF YOU COULD PAUSE EVERYONE ELSE?",
         "fps": FPS,
         "total": total_frames,
         "segments": timeline_segs,
+        "shots": shots_meta,
+        "fx": [
+            {"kind": "flash", "color": "#DDF2FF", "o": 0.45, "f": timeline_segs[4]["a"]},
+            {"kind": "flash", "color": "#FFFFFF", "o": 0.65, "f": timeline_segs[13]["a"]},
+        ],
+        "audio": {
+            "voiceVol": 0.9,
+            "sfxVol": 0.5,
+            "musicVol": 0.14,
+            "voice": "pause-everyone/voice.mp3",
+            "sfx": "pause-everyone/sfx.mp3",
+            "music": "pause-everyone/music.mp3",
+        },
     }
     (EP_DIR / "timeline.json").write_text(json.dumps(timeline, indent=2), encoding="utf-8")
     print(f"pause-everyone built: {total_s:.2f}s ({total_frames} frames), {len(timeline_segs)} shots")
