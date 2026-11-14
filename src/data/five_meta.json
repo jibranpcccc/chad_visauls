@@ -1,0 +1,192 @@
+{
+  "s1": {
+    "title": "What If You Remembered Every Second?",
+    "duration": 18.18,
+    "frames": 546,
+    "words": 39,
+    "beats": [
+      {
+        "id": "B1",
+        "a": 8,
+        "b": 108,
+        "line": "Imagine never forgetting a single page you read."
+      },
+      {
+        "id": "B2",
+        "a": 108,
+        "b": 219,
+        "line": "Every argument and date stored in razor-sharp detail."
+      },
+      {
+        "id": "B3",
+        "a": 219,
+        "b": 293,
+        "line": "What if you remembered every second?"
+      },
+      {
+        "id": "B4",
+        "a": 293,
+        "b": 414,
+        "line": "Friends think it's cool\u2014until mistakes replay forever."
+      },
+      {
+        "id": "B5",
+        "a": 414,
+        "b": 546,
+        "line": "Forgetting isn't a bug. It keeps you sane."
+      }
+    ]
+  },
+  "s2": {
+    "title": "How Honeybees Dance to Share GPS",
+    "duration": 17.99,
+    "frames": 540,
+    "words": 40,
+    "beats": [
+      {
+        "id": "B1",
+        "a": 8,
+        "b": 106,
+        "line": "A scout bee finds flowers and races straight home."
+      },
+      {
+        "id": "B2",
+        "a": 106,
+        "b": 210,
+        "line": "Inside the hive, the whole crew gathers close."
+      },
+      {
+        "id": "B3",
+        "a": 210,
+        "b": 304,
+        "line": "She dances a figure-eight angled toward the sun."
+      },
+      {
+        "id": "B4",
+        "a": 304,
+        "b": 407,
+        "line": "Her waggle encodes exact distance and direction."
+      },
+      {
+        "id": "B5",
+        "a": 407,
+        "b": 540,
+        "line": "The squad launches straight to nectar\u2014zero GPS needed."
+      }
+    ]
+  },
+  "s3": {
+    "title": "How GPS Finds You With Light Speed",
+    "duration": 19.74,
+    "frames": 592,
+    "words": 40,
+    "beats": [
+      {
+        "id": "B1",
+        "a": 8,
+        "b": 124,
+        "line": "Thirty-one GPS satellites beam timestamps at light speed."
+      },
+      {
+        "id": "B2",
+        "a": 124,
+        "b": 237,
+        "line": "Your phone measures nanosecond delays from four satellites."
+      },
+      {
+        "id": "B3",
+        "a": 237,
+        "b": 344,
+        "line": "Where four spheres intersect, your position locks in."
+      },
+      {
+        "id": "B4",
+        "a": 344,
+        "b": 488,
+        "line": "Without Einstein's relativity, GPS drifts eleven kilometers daily."
+      },
+      {
+        "id": "B5",
+        "a": 488,
+        "b": 592,
+        "line": "Pure math and light speed within three meters."
+      }
+    ]
+  },
+  "s4": {
+    "title": "Why 3nm Chips Pack Billions of Transistors",
+    "duration": 18.33,
+    "frames": 550,
+    "words": 40,
+    "beats": [
+      {
+        "id": "B1",
+        "a": 8,
+        "b": 122,
+        "line": "A hair is eighty thousand nanometers\u2014chip gates are three."
+      },
+      {
+        "id": "B2",
+        "a": 122,
+        "b": 233,
+        "line": "Shrinking to three nanometers packs five times more switches."
+      },
+      {
+        "id": "B3",
+        "a": 233,
+        "b": 327,
+        "line": "Shorter signals slash wasted power and heat."
+      },
+      {
+        "id": "B4",
+        "a": 327,
+        "b": 444,
+        "line": "Engineers stack vertical fins like microscopic skyscrapers."
+      },
+      {
+        "id": "B5",
+        "a": 444,
+        "b": 550,
+        "line": "One hundred billion switches flipping billions of times."
+      }
+    ]
+  },
+  "s5": {
+    "title": "Why Flamingos Are Actually Born Grey",
+    "duration": 17.97,
+    "frames": 539,
+    "words": 41,
+    "beats": [
+      {
+        "id": "B1",
+        "a": 8,
+        "b": 110,
+        "line": "Baby flamingos hatch completely fluffy and grey."
+      },
+      {
+        "id": "B2",
+        "a": 110,
+        "b": 205,
+        "line": "Their neon pink colour comes purely from diet."
+      },
+      {
+        "id": "B3",
+        "a": 205,
+        "b": 321,
+        "line": "Brine shrimp and algae carry bright red-orange carotenoids."
+      },
+      {
+        "id": "B4",
+        "a": 321,
+        "b": 439,
+        "line": "Enzymes break them down, dyeing growing feathers coral pink."
+      },
+      {
+        "id": "B5",
+        "a": 439,
+        "b": 539,
+        "line": "In nature, you literally are what you eat."
+      }
+    ]
+  }
+}

@@ -1,0 +1,202 @@
+[
+  {
+    "word": "31",
+    "start": 0.0,
+    "end": 0.74
+  },
+  {
+    "word": "GPS",
+    "start": 0.74,
+    "end": 1.24
+  },
+  {
+    "word": "satellites",
+    "start": 1.24,
+    "end": 1.68
+  },
+  {
+    "word": "beam",
+    "start": 1.68,
+    "end": 2.0
+  },
+  {
+    "word": "timestamps",
+    "start": 2.0,
+    "end": 2.52
+  },
+  {
+    "word": "at",
+    "start": 2.52,
+    "end": 2.66
+  },
+  {
+    "word": "light",
+    "start": 2.66,
+    "end": 2.8
+  },
+  {
+    "word": "speed.",
+    "start": 2.8,
+    "end": 3.14
+  },
+  {
+    "word": "Your",
+    "start": 3.78,
+    "end": 4.42
+  },
+  {
+    "word": "phone",
+    "start": 4.42,
+    "end": 4.64
+  },
+  {
+    "word": "measures",
+    "start": 4.64,
+    "end": 4.96
+  },
+  {
+    "word": "nanosecond",
+    "start": 4.96,
+    "end": 5.48
+  },
+  {
+    "word": "delays",
+    "start": 5.48,
+    "end": 5.8
+  },
+  {
+    "word": "from",
+    "start": 5.8,
+    "end": 6.08
+  },
+  {
+    "word": "four",
+    "start": 6.08,
+    "end": 6.32
+  },
+  {
+    "word": "satellites.",
+    "start": 6.32,
+    "end": 6.82
+  },
+  {
+    "word": "Where",
+    "start": 7.6,
+    "end": 8.18
+  },
+  {
+    "word": "four",
+    "start": 8.18,
+    "end": 8.36
+  },
+  {
+    "word": "spheres",
+    "start": 8.36,
+    "end": 8.66
+  },
+  {
+    "word": "intersect,",
+    "start": 8.66,
+    "end": 9.1
+  },
+  {
+    "word": "your",
+    "start": 9.46,
+    "end": 9.58
+  },
+  {
+    "word": "position",
+    "start": 9.58,
+    "end": 9.9
+  },
+  {
+    "word": "locks",
+    "start": 9.9,
+    "end": 10.16
+  },
+  {
+    "word": "in.",
+    "start": 10.16,
+    "end": 10.48
+  },
+  {
+    "word": "Without",
+    "start": 11.48,
+    "end": 11.88
+  },
+  {
+    "word": "Einstein's",
+    "start": 11.88,
+    "end": 12.4
+  },
+  {
+    "word": "relativity,",
+    "start": 12.4,
+    "end": 12.8
+  },
+  {
+    "word": "GPS",
+    "start": 13.24,
+    "end": 13.54
+  },
+  {
+    "word": "drifts",
+    "start": 13.54,
+    "end": 13.98
+  },
+  {
+    "word": "11",
+    "start": 13.98,
+    "end": 14.3
+  },
+  {
+    "word": "kilometers",
+    "start": 14.3,
+    "end": 14.78
+  },
+  {
+    "word": "daily.",
+    "start": 14.78,
+    "end": 15.22
+  },
+  {
+    "word": "Pure",
+    "start": 16.3,
+    "end": 16.62
+  },
+  {
+    "word": "math",
+    "start": 16.62,
+    "end": 16.84
+  },
+  {
+    "word": "and",
+    "start": 16.84,
+    "end": 16.98
+  },
+  {
+    "word": "light",
+    "start": 16.98,
+    "end": 17.12
+  },
+  {
+    "word": "speed",
+    "start": 17.12,
+    "end": 17.38
+  },
+  {
+    "word": "within",
+    "start": 17.38,
+    "end": 17.64
+  },
+  {
+    "word": "3",
+    "start": 17.64,
+    "end": 17.96
+  },
+  {
+    "word": "meters.",
+    "start": 17.96,
+    "end": 18.16
+  }
+]

@@ -1,4 +1,4 @@
-name: Render Remotion Videos
+name: Render 5 Unique Styles
 
 on:
   workflow_dispatch:
@@ -10,8 +10,11 @@ on:
         type: choice
         options:
           - all
-          - PauseEveryone
-          - CopyPaste
+          - Five-S1-WhatIf
+          - Five-S2-Bees
+          - Five-S3-GPS
+          - Five-S4-Silicon
+          - Five-S5-Flamingo
 
 jobs:
   render:
@@ -20,10 +23,16 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - id: PauseEveryone
-            out: pause-everyone.mp4
-          - id: CopyPaste
-            out: copy-paste.mp4
+          - id: Five-S1-WhatIf
+            out: five-s1.mp4
+          - id: Five-S2-Bees
+            out: five-s2.mp4
+          - id: Five-S3-GPS
+            out: five-s3.mp4
+          - id: Five-S4-Silicon
+            out: five-s4.mp4
+          - id: Five-S5-Flamingo
+            out: five-s5.mp4
     steps:
       - uses: actions/checkout@v4
         if: ${{ github.event.inputs.composition == 'all' || github.event.inputs.composition == matrix.id }}
