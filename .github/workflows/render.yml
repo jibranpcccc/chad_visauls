@@ -27,24 +27,28 @@ jobs:
             out: style2-cartoon3d.mp4
           - id: Style3-RepoChad-Neon
             out: style3-repochad.mp4
-    if: ${{ github.event.inputs.composition == 'all' || github.event.inputs.composition == '' || github.event.inputs.composition == matrix.id }}
     steps:
       - uses: actions/checkout@v4
+        if: ${{ github.event.inputs.composition == 'all' || github.event.inputs.composition == matrix.id }}
 
       - uses: actions/setup-node@v4
+        if: ${{ github.event.inputs.composition == 'all' || github.event.inputs.composition == matrix.id }}
         with:
           node-version: "22"
           cache: "npm"
 
       - name: Install dependencies
+        if: ${{ github.event.inputs.composition == 'all' || github.event.inputs.composition == matrix.id }}
         run: npm ci || npm install
 
       - name: Render ${{ matrix.id }}
+        if: ${{ github.event.inputs.composition == 'all' || github.event.inputs.composition == matrix.id }}
         run: |
           mkdir -p out
           npx remotion render src/index.ts "${{ matrix.id }}" "out/${{ matrix.out }}" --codec h264 --crf 18
 
       - name: Upload ${{ matrix.out }}
+        if: ${{ github.event.inputs.composition == 'all' || github.event.inputs.composition == matrix.id }}
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.out }}
