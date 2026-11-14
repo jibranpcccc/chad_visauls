@@ -1,0 +1,144 @@
+{
+  "slug": "pause-everyone",
+  "title": "WHAT IF YOU COULD PAUSE EVERYONE ELSE?",
+  "fps": 30,
+  "total": 1962,
+  "segments": [
+    {
+      "shot": "S1",
+      "a": 8,
+      "b": 117,
+      "t0": 0,
+      "t1": 109,
+      "line": "Pause your sister mid-argument.",
+      "look": "pause"
+    },
+    {
+      "shot": "S2",
+      "a": 117,
+      "b": 233,
+      "t0": 0,
+      "t1": 116,
+      "line": "Steal the last cookie right off the plate.",
+      "look": "pause"
+    },
+    {
+      "shot": "S3",
+      "a": 233,
+      "b": 362,
+      "t0": 0,
+      "t1": 129,
+      "line": "Freeze your friend Mo before he spills his drink.",
+      "look": "pause"
+    },
+    {
+      "shot": "S4",
+      "a": 362,
+      "b": 481,
+      "t0": 0,
+      "t1": 119,
+      "line": "Even pause Mum before she sees the mess.",
+      "look": "pause"
+    },
+    {
+      "shot": "S5",
+      "a": 481,
+      "b": 590,
+      "t0": 0,
+      "t1": 109,
+      "line": "What if you could pause everyone else on Earth?"
+    },
+    {
+      "shot": "S6",
+      "a": 590,
+      "b": 710,
+      "t0": 0,
+      "t1": 120,
+      "line": "At first, it feels like a superpower."
+    },
+    {
+      "shot": "S7",
+      "a": 710,
+      "b": 833,
+      "t0": 0,
+      "t1": 123,
+      "line": "Walk past The Suit into any restricted room.",
+      "look": "pause"
+    },
+    {
+      "shot": "S8",
+      "a": 833,
+      "b": 955,
+      "t0": 0,
+      "t1": 122,
+      "line": "Finish your homework while the whole world waits.",
+      "look": "pause"
+    },
+    {
+      "shot": "S9",
+      "a": 955,
+      "b": 1079,
+      "t0": 0,
+      "t1": 124,
+      "line": "Nap for six hours on a busy staircase.",
+      "look": "pause"
+    },
+    {
+      "shot": "S10",
+      "a": 1079,
+      "b": 1215,
+      "t0": 0,
+      "t1": 136,
+      "line": "Until you realize one terrifying physics catch."
+    },
+    {
+      "shot": "S11",
+      "a": 1215,
+      "b": 1341,
+      "t0": 0,
+      "t1": 126,
+      "line": "If air molecules are frozen solid around you,"
+    },
+    {
+      "shot": "S12",
+      "a": 1341,
+      "b": 1474,
+      "t0": 0,
+      "t1": 133,
+      "line": "you couldn't breathe, and light couldn't reach your eyes."
+    },
+    {
+      "shot": "S13",
+      "a": 1474,
+      "b": 1601,
+      "t0": 0,
+      "t1": 127,
+      "line": "Every step would feel like slamming into concrete."
+    },
+    {
+      "shot": "S14",
+      "a": 1601,
+      "b": 1711,
+      "t0": 0,
+      "t1": 110,
+      "line": "Unpause!",
+      "look": "unpause"
+    },
+    {
+      "shot": "S15",
+      "a": 1711,
+      "b": 1842,
+      "t0": 0,
+      "t1": 131,
+      "line": "Now everyone stares as you appear out of thin air,"
+    },
+    {
+      "shot": "S16",
+      "a": 1842,
+      "b": 1962,
+      "t0": 0,
+      "t1": 120,
+      "line": "holding a cookie you definitely didn't pay for."
+    }
+  ]
+}

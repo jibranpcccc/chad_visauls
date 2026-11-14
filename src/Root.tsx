@@ -1,28 +1,14 @@
 import React from "react";
-import { Composition, Series } from "remotion";
-import { WhatIfStickStyle } from "./styles/WhatIfStickStyle";
-import { Cartoon3DToonStyle } from "./styles/Cartoon3DToonStyle";
-import { RepoChadNeonStyle } from "./styles/RepoChadNeonStyle";
-
-const AllStylesReel: React.FC = () => (
-  <Series>
-    <Series.Sequence durationInFrames={1800}>
-      <WhatIfStickStyle />
-    </Series.Sequence>
-    <Series.Sequence durationInFrames={1847}>
-      <Cartoon3DToonStyle />
-    </Series.Sequence>
-    <Series.Sequence durationInFrames={1877}>
-      <RepoChadNeonStyle />
-    </Series.Sequence>
-  </Series>
-);
+import { Composition } from "remotion";
+import "./engine/fonts";
+import { copyPaste } from "./episodes/copy-paste";
+import { pauseEveryone } from "./episodes/pause-everyone";
+import { CastSheet } from "./CastSheet";
 
 export const RemotionRoot: React.FC = () => (
   <>
-    <Composition id="Style1-WhatIf-SVG" component={WhatIfStickStyle} durationInFrames={1800} fps={30} width={1920} height={1080} />
-    <Composition id="Style2-Cartoon3D-Toon" component={Cartoon3DToonStyle} durationInFrames={1847} fps={30} width={1920} height={1080} />
-    <Composition id="Style3-RepoChad-Neon" component={RepoChadNeonStyle} durationInFrames={1877} fps={30} width={1920} height={1080} />
-    <Composition id="AllStyles-Reel" component={AllStylesReel} durationInFrames={5524} fps={30} width={1920} height={1080} />
+    <Composition id={pauseEveryone.id} component={pauseEveryone.Main} durationInFrames={Math.max(1, pauseEveryone.total)} fps={30} width={1920} height={1080} />
+    <Composition id={copyPaste.id} component={copyPaste.Main} durationInFrames={Math.max(1, copyPaste.total)} fps={30} width={1920} height={1080} />
+    <Composition id="Cast" component={CastSheet} durationInFrames={1} fps={30} width={1920} height={1080} />
   </>
 );

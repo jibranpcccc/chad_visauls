@@ -4,15 +4,14 @@ on:
   workflow_dispatch:
     inputs:
       composition:
-        description: "Remotion composition to render (or 'all' for all 3 in parallel)"
+        description: "Remotion composition to render"
         required: true
         default: "all"
         type: choice
         options:
           - all
-          - Style1-WhatIf-SVG
-          - Style2-Cartoon3D-Toon
-          - Style3-RepoChad-Neon
+          - PauseEveryone
+          - CopyPaste
 
 jobs:
   render:
@@ -21,12 +20,10 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - id: Style1-WhatIf-SVG
-            out: style1-whatif.mp4
-          - id: Style2-Cartoon3D-Toon
-            out: style2-cartoon3d.mp4
-          - id: Style3-RepoChad-Neon
-            out: style3-repochad.mp4
+          - id: PauseEveryone
+            out: pause-everyone.mp4
+          - id: CopyPaste
+            out: copy-paste.mp4
     steps:
       - uses: actions/checkout@v4
         if: ${{ github.event.inputs.composition == 'all' || github.event.inputs.composition == matrix.id }}
