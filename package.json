@@ -1,0 +1,26 @@
+{
+  "name": "chad_visauls",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Multi-style animated video showcase built with Remotion",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "render:all": "remotion render src/index.ts AllStyles-Reel out/all-styles.mp4 --codec h264 --crf 18",
+    "render:whatif": "remotion render src/index.ts Style1-WhatIf-SVG out/style1-whatif.mp4 --codec h264 --crf 18",
+    "render:cartoon": "remotion render src/index.ts Style2-Cartoon3D-Toon out/style2-cartoon3d.mp4 --codec h264 --crf 18",
+    "render:repochad": "remotion render src/index.ts Style3-RepoChad-Neon out/style3-repochad.mp4 --codec h264 --crf 18"
+  },
+  "dependencies": {
+    "@remotion/bundler": "4.0.530",
+    "@remotion/cli": "4.0.530",
+    "@remotion/renderer": "4.0.530",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "remotion": "4.0.530"
+  },
+  "devDependencies": {
+    "@types/react": "19.0.0",
+    "typescript": "5.8.2"
+  }
+}
