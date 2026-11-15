@@ -1,0 +1,38 @@
+{
+  "slug": "niche-horror",
+  "title": "NEVER ANSWER THE SECOND KNOCK",
+  "fps": 30,
+  "total": 380,
+  "segments": [
+    { "shot": "Sh1", "a": 0, "b": 81, "t0": 0, "t1": 81, "line": "Rule one: never answer the second knock at night.", "look": "horror" },
+    { "shot": "Sh2", "a": 81, "b": 158, "t0": 0, "t1": 77, "line": "Leo, open up! I forgot my keys!", "look": "horror" },
+    { "shot": "Sh3", "a": 158, "b": 200, "t0": 0, "t1": 42, "line": "Coming! Hang on!", "look": "horror" },
+    { "shot": "Sh4", "a": 200, "b": 246, "t0": 0, "t1": 46, "line": "Then his phone buzzed.", "look": "horror" },
+    { "shot": "Sh5", "a": 246, "b": 275, "t0": 0, "t1": 29, "line": "A text from his sister.", "look": "horror" },
+    { "shot": "Sh6", "a": 275, "b": 324, "t0": 0, "t1": 49, "line": "Leo, I'm right outside.", "look": "horror" },
+    { "shot": "Sh7", "a": 324, "b": 380, "t0": 0, "t1": 56, "line": "Wait, who is at the door?!", "look": "horror" }
+  ],
+  "shots": [
+    { "id": "Sh1", "first": 0, "len": 81, "key": 40 },
+    { "id": "Sh2", "first": 81, "len": 77, "key": 38 },
+    { "id": "Sh3", "first": 158, "len": 42, "key": 21 },
+    { "id": "Sh4", "first": 200, "len": 46, "key": 24 },
+    { "id": "Sh5", "first": 246, "len": 29, "key": 15 },
+    { "id": "Sh6", "first": 275, "len": 49, "key": 24 },
+    { "id": "Sh7", "first": 324, "len": 56, "key": 32 }
+  ],
+  "fx": [
+    { "kind": "flash", "f": 202, "color": "#FF5A4A", "o": 0.6 },
+    { "kind": "shake", "f": 202, "len": 8, "amp": 12 },
+    { "kind": "flash", "f": 364, "color": "#FF3B30", "o": 0.72 },
+    { "kind": "shake", "f": 364, "len": 12, "amp": 18 }
+  ],
+  "audio": {
+    "voice": "niche-horror/voice.mp3",
+    "sfx": "niche-horror/sfx.mp3",
+    "music": "niche-horror/music.mp3",
+    "voiceVol": 1,
+    "sfxVol": 0.9,
+    "musicVol": 0.42
+  }
+}

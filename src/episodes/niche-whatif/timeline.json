@@ -1,0 +1,40 @@
+{
+  "slug": "niche-whatif",
+  "title": "WHAT IF YOU COULD REWIND 5 SECONDS?",
+  "fps": 30,
+  "total": 335,
+  "segments": [
+    { "shot": "Sh1", "a": 0, "b": 42, "t0": 0, "t1": 42, "line": "Imagine a button" },
+    { "shot": "Sh2", "a": 42, "b": 85, "t0": 0, "t1": 43, "line": "that rewinds just five seconds." },
+    { "shot": "Sh3", "a": 85, "b": 106, "t0": 0, "t1": 21, "line": "Oops, sorry!" },
+    { "shot": "Sh4", "a": 106, "b": 124, "t0": 0, "t1": 18, "line": "Rewind!", "look": "rewind" },
+    { "shot": "Sh5", "a": 124, "b": 178, "t0": 0, "t1": 54, "line": "Zero mess. Zero blame.", "look": "rewind" },
+    { "shot": "Sh6", "a": 178, "b": 215, "t0": 0, "t1": 37, "line": "Until you spam it.", "look": "rewind" },
+    { "shot": "Sh7", "a": 215, "b": 276, "t0": 0, "t1": 61, "line": "Pip, why is the cat floating backward?" },
+    { "shot": "Sh8", "a": 276, "b": 335, "t0": 0, "t1": 59, "line": "Wait, is that a physics glitch?" }
+  ],
+  "shots": [
+    { "id": "Sh1", "first": 0, "len": 42, "key": 20 },
+    { "id": "Sh2", "first": 42, "len": 43, "key": 22 },
+    { "id": "Sh3", "first": 85, "len": 21, "key": 10 },
+    { "id": "Sh4", "first": 106, "len": 18, "key": 8 },
+    { "id": "Sh5", "first": 124, "len": 54, "key": 28 },
+    { "id": "Sh6", "first": 178, "len": 37, "key": 24 },
+    { "id": "Sh7", "first": 215, "len": 61, "key": 32 },
+    { "id": "Sh8", "first": 276, "len": 59, "key": 30 }
+  ],
+  "fx": [
+    { "kind": "shake", "f": 87, "len": 8, "amp": 14 },
+    { "kind": "flash", "f": 107, "color": "#7FD4FF", "o": 0.78 },
+    { "kind": "flash", "f": 319, "color": "#FF6F61", "o": 0.55 },
+    { "kind": "shake", "f": 319, "len": 8, "amp": 12 }
+  ],
+  "audio": {
+    "voice": "niche-whatif/voice.mp3",
+    "sfx": "niche-whatif/sfx.mp3",
+    "music": "niche-whatif/music.mp3",
+    "voiceVol": 1,
+    "sfxVol": 0.85,
+    "musicVol": 0.48
+  }
+}

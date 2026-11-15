@@ -6,13 +6,17 @@ on:
       composition:
         description: "Remotion composition to render"
         required: true
-        default: "all"
+        default: "niches"
         type: choice
         options:
+          - niches
           - all
           - Dusk-Mute
           - Dusk-Pause
           - Dusk-Glow
+          - Niche-WhatIf
+          - Niche-Psych
+          - Niche-Horror
 
 jobs:
   render:
@@ -27,28 +31,34 @@ jobs:
             out: dusk-pause.mp4
           - id: Dusk-Glow
             out: dusk-glow.mp4
+          - id: Niche-WhatIf
+            out: niche-whatif.mp4
+          - id: Niche-Psych
+            out: niche-psych.mp4
+          - id: Niche-Horror
+            out: niche-horror.mp4
     steps:
       - uses: actions/checkout@v4
-        if: ${{ github.event.inputs.composition == 'all' || github.event.inputs.composition == matrix.id }}
+        if: ${{ github.event.inputs.composition == 'all' || (github.event.inputs.composition == 'niches' && startsWith(matrix.id, 'Niche-')) || github.event.inputs.composition == matrix.id }}
 
       - uses: actions/setup-node@v4
-        if: ${{ github.event.inputs.composition == 'all' || github.event.inputs.composition == matrix.id }}
+        if: ${{ github.event.inputs.composition == 'all' || (github.event.inputs.composition == 'niches' && startsWith(matrix.id, 'Niche-')) || github.event.inputs.composition == matrix.id }}
         with:
           node-version: "22"
           cache: "npm"
 
       - name: Install dependencies
-        if: ${{ github.event.inputs.composition == 'all' || github.event.inputs.composition == matrix.id }}
+        if: ${{ github.event.inputs.composition == 'all' || (github.event.inputs.composition == 'niches' && startsWith(matrix.id, 'Niche-')) || github.event.inputs.composition == matrix.id }}
         run: npm ci || npm install
 
       - name: Render ${{ matrix.id }}
-        if: ${{ github.event.inputs.composition == 'all' || github.event.inputs.composition == matrix.id }}
+        if: ${{ github.event.inputs.composition == 'all' || (github.event.inputs.composition == 'niches' && startsWith(matrix.id, 'Niche-')) || github.event.inputs.composition == matrix.id }}
         run: |
           mkdir -p out
           npx remotion render src/index.ts "${{ matrix.id }}" "out/${{ matrix.out }}" --codec h264 --crf 18
 
       - name: Upload ${{ matrix.out }}
-        if: ${{ github.event.inputs.composition == 'all' || github.event.inputs.composition == matrix.id }}
+        if: ${{ github.event.inputs.composition == 'all' || (github.event.inputs.composition == 'niches' && startsWith(matrix.id, 'Niche-')) || github.event.inputs.composition == matrix.id }}
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.out }}

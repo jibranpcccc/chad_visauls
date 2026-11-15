@@ -1,0 +1,36 @@
+{
+  "slug": "niche-psych",
+  "title": "THE 3-WORD MIRROR HACK",
+  "fps": 30,
+  "total": 378,
+  "segments": [
+    { "shot": "Sh1", "a": 0, "b": 80, "t0": 0, "t1": 80, "line": "When someone snaps at you, never argue back." },
+    { "shot": "Sh2", "a": 80, "b": 145, "t0": 0, "t1": 65, "line": "Your report is late and totally useless!" },
+    { "shot": "Sh3", "a": 145, "b": 175, "t0": 0, "t1": 30, "line": "Totally useless?", "look": "mirror" },
+    { "shot": "Sh4", "a": 175, "b": 225, "t0": 0, "t1": 50, "line": "Repeat their last three words.", "look": "mirror" },
+    { "shot": "Sh5", "a": 225, "b": 270, "t0": 0, "t1": 45, "line": "Watch their brain freeze.", "look": "mirror" },
+    { "shot": "Sh6", "a": 270, "b": 343, "t0": 0, "t1": 73, "line": "Well, I mean, the font was actually okay." },
+    { "shot": "Sh7", "a": 343, "b": 378, "t0": 0, "t1": 35, "line": "Thought so.", "look": "mirror" }
+  ],
+  "shots": [
+    { "id": "Sh1", "first": 0, "len": 80, "key": 40 },
+    { "id": "Sh2", "first": 80, "len": 65, "key": 32 },
+    { "id": "Sh3", "first": 145, "len": 30, "key": 15 },
+    { "id": "Sh4", "first": 175, "len": 50, "key": 24 },
+    { "id": "Sh5", "first": 225, "len": 45, "key": 32 },
+    { "id": "Sh6", "first": 270, "len": 73, "key": 36 },
+    { "id": "Sh7", "first": 343, "len": 35, "key": 18 }
+  ],
+  "fx": [
+    { "kind": "flash", "f": 255, "color": "#7FD4FF", "o": 0.65 },
+    { "kind": "flash", "f": 344, "color": "#5BE08A", "o": 0.4 }
+  ],
+  "audio": {
+    "voice": "niche-psych/voice.mp3",
+    "sfx": "niche-psych/sfx.mp3",
+    "music": "niche-psych/music.mp3",
+    "voiceVol": 1,
+    "sfxVol": 0.85,
+    "musicVol": 0.45
+  }
+}
