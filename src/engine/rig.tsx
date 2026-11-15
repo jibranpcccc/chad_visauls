@@ -281,11 +281,11 @@ const Face: React.FC<{ expr: Expr; blink: number; look: number; glasses: number;
     tired: <path d={`M -11 ${mY + 4} Q 0 ${mY} 11 ${mY + 4}`} stroke={ink} strokeWidth={5} fill="none" strokeLinecap="round" />,
   };
   const mouthNode =
-    talk > 0.08 && expr !== 'shock' ? (
-      <g>
-        <ellipse cx={0} cy={mY + 3} rx={8 + talk * 6} ry={3 + talk * 8} fill={ink} />
-        {talk > 0.45 ? <path d={`M ${-(5 + talk * 3)} ${mY + 1} Q 0 ${mY + 4} ${5 + talk * 3} ${mY + 1}`} stroke="#F6EFE3" strokeWidth={2.5} fill="none" strokeLinecap="round" /> : null}
-      </g>
+    talk > 0.12 && expr !== 'shock' ? (
+      <path
+        d={`M ${-(9 + talk * 5)} ${mY - 1} Q 0 ${mY + 2 + talk * 16} ${9 + talk * 5} ${mY - 1} Q 0 ${mY - 3 - talk * 2} ${-(9 + talk * 5)} ${mY - 1} Z`}
+        fill={ink}
+      />
     ) : (
       mouth[expr]
     );

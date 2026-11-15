@@ -6,21 +6,18 @@ export type DialogueTurn = {
   endSec: number;
   startF: number;
   endF: number;
+  words?: { word: string; startF: number; endF: number }[];
 };
 
+export type MouthMap = Record<string, number[]>;
+
 /**
- * Returns 0..1 mouth open fraction synchronized with active speaking windows in dialogue.json.
+ * Returns exact 0..1 audio-RMS mouth openness for a given global frame f and speaker.
  */
-export const talkWave = (f: number, turns: DialogueTurn[], speaker: string): number => {
-  for (const t of turns) {
-    if (t.speaker === speaker && f >= t.startF && f <= t.endF) {
-      const local = f - t.startF;
-      const env = Math.min(1, local / 3, (t.endF - f) / 3);
-      const syllable = 0.35 + 0.65 * Math.abs(Math.sin(local * 0.92) * Math.cos(local * 0.43 + 0.5));
-      return Math.max(0, Math.min(1, env * syllable));
-    }
-  }
-  return 0;
+export const talkAt = (f: number, mouthFrames: MouthMap, speaker: string): number => {
+  const arr = mouthFrames[speaker];
+  if (!arr || f < 0 || f >= arr.length) return 0;
+  return arr[Math.floor(f)] ?? 0;
 };
 
 /**
