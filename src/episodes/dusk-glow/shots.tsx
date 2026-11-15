@@ -64,17 +64,17 @@ export const Sh2: React.FC<ShotProps> = ({ t, len }) => {
   );
 };
 
-// ---------- Sh3: OTS behind Leo's blurred cap onto Mum ("Leo... did you eat all my warm cookies?") ----------
+// ---------- Sh3: OTS behind Leo's blurred cap onto Mum ("Leo... did you eat all my warm cookies?") — grounded waist-up! ----------
 export const Sh3: React.FC<ShotProps> = ({ t, len, f }) => {
   const mom = poseAt(t, [
-    { f: 0, p: { x: 840, y: 740, scale: 1.5, facing: 1, yaw: 0.35, look: 0.7, armL: { a: 55, b: -60 }, armR: { a: 55, b: -60 } } },
+    { f: 0, p: { x: 820, y: 940, scale: 1.85, facing: 1, yaw: 0.35, look: 0.7, armL: { a: 55, b: -60 }, armR: { a: 55, b: -60 } } },
     { f: 34, p: { armR: { a: 98, b: 18 }, handR: 'point', tilt: 5 }, ease: easeOut },
   ]);
   return (
-    <g transform={camT(kf(t, [[0, 880], [len, 860]]), 490, kf(t, [[0, 1.0], [len, 1.08]]))}>
+    <g transform={camT(kf(t, [[0, 880], [len, 860]]), 490, kf(t, [[0, 1.0], [len, 1.06]]))}>
       <g filter="url(#blur16)">
         <g transform="translate(-320 -180) scale(1.45)">
-          <Kitchen t={t + 75} id="g3" veil={0.44} />
+          <Kitchen t={t + 76} id="g3" veil={0.44} />
         </g>
       </g>
       <rect x={-100} y={-100} width={2120} height={1280} fill="#080612" opacity={0.22} />
@@ -88,31 +88,31 @@ export const Sh3: React.FC<ShotProps> = ({ t, len, f }) => {
   );
 };
 
-// ---------- Sh4: Medium Leo ("What? No!") -> exact bulb_pop & glow at f180 (t=40)! ----------
+// ---------- Sh4: Medium Leo ("What? No!") -> exact bulb_pop & glow at f161 (t=20)! ----------
 export const Sh4: React.FC<ShotProps> = ({ t, len, f }) => {
-  const lit = t >= 40;
-  const gAmt = lit ? easeOut(clamp((t - 40) / 8)) : 0;
+  const lit = t >= 20;
+  const gAmt = lit ? easeOut(clamp((t - 20) / 8)) : 0;
   const leo = poseAt(t, [
-    { f: 0, p: { x: 960, y: 740, scale: 1.5, facing: -1, yaw: -0.25, look: -0.5, armL: { a: 96, b: 25 }, armR: { a: 96, b: 25 } } },
-    { f: 40, p: { armL: { a: 126, b: 30 }, armR: { a: 126, b: 30 }, headTilt: 5 }, ease: easeOut },
+    { f: 0, p: { x: 960, y: 920, scale: 1.78, facing: -1, yaw: -0.25, look: -0.5, armL: { a: 96, b: 25 }, armR: { a: 96, b: 25 } } },
+    { f: 20, p: { armL: { a: 126, b: 30 }, armR: { a: 126, b: 30 }, headTilt: 5 }, ease: easeOut },
   ]);
   return (
     <g transform={camT(960, 500, kf(t, [[0, 1.0], [len, 1.06]]))}>
       <g filter="url(#blur16)">
         <g transform="translate(-380 -180) scale(1.45)">
-          <Kitchen t={t + 140} id="g4" veil={lit ? 0.18 : 0.44} />
+          <Kitchen t={t + 141} id="g4" veil={lit ? 0.18 : 0.44} />
         </g>
       </g>
       <rect x={-100} y={-100} width={2120} height={1280} fill="#080612" opacity={lit ? 0.1 : 0.25} />
       {lit ? <Glow x={960} y={440} r={440 * gAmt + 60} kind="warm" o={0.78} /> : null}
       <Actor
         look={LEO}
-        pose={{ ...leo, glint: gAmt, glintColor: GOLD, ...faceAt(t, [[0, 'oops'], [40, 'shock']]), talk: talkAt(f, mouthFrames, 'leo') }}
+        pose={{ ...leo, glint: gAmt, glintColor: GOLD, ...faceAt(t, [[0, 'oops'], [20, 'shock']]), talk: talkAt(f, mouthFrames, 'leo') }}
         rimId="rimR"
         shadow={0}
       />
-      {lit ? <Sparkle x={1100} y={340} t={t - 40} s={1.3} /> : null}
-      {lit ? <FocusRings x={960} y={450} t={t - 40} r0={75} color={GOLD} /> : null}
+      {lit ? <Sparkle x={1120} y={320} t={t - 20} s={1.3} /> : null}
+      {lit ? <FocusRings x={960} y={450} t={t - 20} r0={75} color={GOLD} /> : null}
     </g>
   );
 };
@@ -133,7 +133,7 @@ export const Sh5: React.FC<ShotProps> = ({ t, len, f }) => {
   );
 };
 
-// ---------- Sh6: TitleCard Bedroom at night — title_boom at f263 (t=3)! ----------
+// ---------- Sh6: TitleCard Bedroom at night — title_boom at f225 (t=3)! ----------
 export const Sh6: React.FC<ShotProps> = ({ t, len }) => {
   const bs = bedSit(0.24);
   const pulse = Math.sin(t * 0.4) * 35;
@@ -143,37 +143,38 @@ export const Sh6: React.FC<ShotProps> = ({ t, len }) => {
       <Glow x={bs.x} y={bs.y - 60} r={320 + pulse} kind="warm" o={0.78} />
       <Actor look={LEO} pose={{ ...basePose, x: bs.x, y: bs.y, scale: bs.scale, yaw: 0.25, look: 0.2, glint: 1, glintColor: GOLD, ...faceAt(t, [[0, 'worried']]) }} rimId="rimR" shadow={0} />
       <BedDuvet knees={0.9} />
-      <TitleCard t={t - 2} lines={['WHAT IF EVERY LIE', 'MADE YOU GLOW?']} accent="GLOW" accentT={14} size={92} y={175} />
+      <TitleCard t={t - 2} lines={['WHAT IF EVERY LIE', 'MADE YOU GLOW?']} accent="GLOW" accentT={12} size={92} y={175} />
     </g>
   );
 };
 
-// ---------- Sh7: Schematic dark blueprint — Truth Lumen meter surging at f340 (t=14)! ----------
+// ---------- Sh7: Schematic dark blueprint — Truth Lumen meter surging ----------
 export const Sh7: React.FC<ShotProps> = ({ t, len }) => {
-  const p = easeOut(clamp(t / 32));
+  const p = easeOut(clamp(t / 22));
   return (
     <g transform={camT(960, 540, kf(t, [[0, 1.0], [len, 1.05]]))}>
       <Schematic t={t} id="g7" />
       <SchLabel x={960} y={240} t={t - 2} text="TRUTH OUTPUT CALIBRATION" size={48} color={SCH.dim} />
       <Gauge x={460} y={440} w={1000} p={p} label="LUMINOSITY OUTPUT" danger={0.55} />
-      <CountUp x={960} y={670} t={t - 4} to={9500} dur={26} size={108} suffix=" LM" color={GOLD} />
-      <Tag x={960} y={810} t={t - 18} text="EXPOSED!" mark="x" markT={3} w={340} />
+      <CountUp x={960} y={670} t={t - 4} to={9500} dur={18} size={108} suffix=" LM" color={GOLD} />
+      <Tag x={960} y={810} t={t - 10} text="EXPOSED!" mark="x" markT={3} w={340} />
     </g>
   );
 };
 
-// ---------- Sh8: Close-up Leo sweating nervously, amber pulse rising ----------
+// ---------- Sh8: Off-center medium-close Leo sweating nervously ("Whole street sees it.") ----------
 export const Sh8: React.FC<ShotProps> = ({ t, len }) => {
-  const sc = 4.2 * (1 + 0.04 * clamp(t / len));
+  const sc = 2.55 * (1 + 0.04 * clamp(t / len));
   return (
     <g>
       <g filter="url(#blur16)">
         <g transform="translate(-520 -260) scale(1.85)">
-          <Kitchen t={t + 374} id="g8" veil={0.22} />
+          <Kitchen t={t + 306} id="g8" veil={0.22} />
         </g>
       </g>
-      <Glow x={960} y={540} r={540} kind="warm" o={0.58 + 0.14 * Math.sin(t * 0.9)} />
-      <Actor look={LEO} pose={{ ...basePose, x: 960, y: 600 - HEAD.y * sc, scale: sc, yaw: -0.1, look: -0.4, glint: 1, glintColor: GOLD, ...faceAt(t, [[0, 'worried']]) }} rimId="rimR" shadow={0} />
+      <Glow x={840} y={520} r={540} kind="warm" o={0.58 + 0.14 * Math.sin(t * 0.9)} />
+      <Actor look={LEO} pose={{ ...basePose, x: 840, y: 650 - HEAD.y * sc, scale: sc, yaw: -0.15, look: -0.45, glint: 1, glintColor: GOLD, ...faceAt(t, [[0, 'worried']]) }} rimId="rimR" shadow={0} />
+      <Tag x={1380} y={360} t={t} text="9,500 LM" mark="x" markT={2} w={250} />
     </g>
   );
 };
@@ -183,11 +184,11 @@ export const Sh9: React.FC<ShotProps> = ({ t, len, f }) => {
   const k = stand(KITCHEN, 0.56, 0.5, 0.65);
   const leo = poseAt(t, [
     { f: 0, p: { x: k.x, y: k.y, scale: k.scale * 1.15, facing: -1, yaw: -0.3, look: -0.6, armL: { a: 86, b: 36 }, armR: { a: 86, b: 36 } } },
-    { f: 28, p: { armL: { a: 120, b: 20 }, armR: { a: 120, b: 20 }, tilt: 6 }, ease: easeOut },
+    { f: 24, p: { armL: { a: 120, b: 20 }, armR: { a: 120, b: 20 }, tilt: 6 }, ease: easeOut },
   ]);
   return (
     <g transform={camT(960, 490, kf(t, [[0, 1.08], [len, 1.14]]))}>
-      <Kitchen t={t + 409} id="g9" veil={0.2} />
+      <Kitchen t={t + 334} id="g9" veil={0.2} />
       <Glow x={k.x} y={k.y - 120} r={420} kind="warm" o={0.78} />
       <Actor look={LEO} pose={{ ...leo, glint: 1, glintColor: GOLD, ...faceAt(t, [[0, 'oops']]), talk: talkAt(f, mouthFrames, 'leo') }} rimId="rimR" shadow={0} />
       <KitchenIsland />
@@ -195,32 +196,32 @@ export const Sh9: React.FC<ShotProps> = ({ t, len, f }) => {
   );
 };
 
-// ---------- Sh10: Extreme close-up supernova flash exact on "five!" at f501 (t=35, buzzer SFX)! ----------
+// ---------- Sh10: Medium-close supernova flash exact on "five!" at f406 (t=18, buzzer SFX)! ----------
 export const Sh10: React.FC<ShotProps> = ({ t, len, f }) => {
-  const sc = 4.6 * (1 + 0.05 * clamp(t / len));
-  const surge = t >= 35;
+  const sc = 3.25 * (1 + 0.05 * clamp(t / len));
+  const surge = t >= 18;
   return (
     <g>
       <g filter="url(#blur16)">
         <g transform="translate(-540 -260) scale(1.9)">
-          <Kitchen t={t + 466} id="g10" veil={surge ? 0.05 : 0.2} />
+          <Kitchen t={t + 388} id="g10" veil={surge ? 0.05 : 0.2} />
         </g>
       </g>
       <Glow x={960} y={540} r={surge ? 920 : 540} kind="warm" o={surge ? 0.92 : 0.65} />
-      <Actor look={LEO} pose={{ ...basePose, x: 960, y: 610 - HEAD.y * sc, scale: sc, yaw: 0.05, glint: 1, glintColor: GOLD, ...faceAt(t, [[0, 'oops'], [35, 'shock']]), talk: talkAt(f, mouthFrames, 'leo') }} rimId="rimR" shadow={0} />
-      {surge ? <FocusRings x={960} y={480} t={t - 35} r0={90} color={GOLD} /> : null}
-      {surge ? <Sparkle x={1180} y={320} t={t - 36} s={1.4} /> : null}
+      <Actor look={LEO} pose={{ ...basePose, x: 960, y: 630 - HEAD.y * sc, scale: sc, yaw: 0.05, glint: 1, glintColor: GOLD, ...faceAt(t, [[0, 'oops'], [18, 'shock']]), talk: talkAt(f, mouthFrames, 'leo') }} rimId="rimR" shadow={0} />
+      {surge ? <FocusRings x={960} y={480} t={t - 18} r0={90} color={GOLD} /> : null}
+      {surge ? <Sparkle x={1180} y={320} t={t - 19} s={1.4} /> : null}
     </g>
   );
 };
 
-// ---------- Sh11: OTS Mum deadpan across blazing orange reflection ("Leo, you're brighter than—") ----------
+// ---------- Sh11: OTS Mum deadpan grounded waist-up ("Leo, you're brighter than—") ----------
 export const Sh11: React.FC<ShotProps> = ({ t, len, f }) => {
   const mom: Pose = {
     ...basePose,
-    x: 840,
-    y: 740,
-    scale: 1.5,
+    x: 820,
+    y: 940,
+    scale: 1.85,
     facing: 1,
     yaw: 0.35,
     look: 0.7,
@@ -234,7 +235,7 @@ export const Sh11: React.FC<ShotProps> = ({ t, len, f }) => {
     <g transform={camT(kf(t, [[0, 900], [len, 885]]), 490, kf(t, [[0, 1.0], [len, 1.06]]))}>
       <g filter="url(#blur16)">
         <g transform="translate(-320 -180) scale(1.45)">
-          <Kitchen t={t + 515} id="g11" veil={0.18} />
+          <Kitchen t={t + 420} id="g11" veil={0.18} />
         </g>
       </g>
       <Glow x={1650} y={540} r={680} kind="warm" o={0.62} />

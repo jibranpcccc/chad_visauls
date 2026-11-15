@@ -41,31 +41,27 @@ export const Sh1: React.FC<ShotProps> = ({ t, len }) => {
   );
 };
 
-// ---------- Sh2: Macro UI click — finger activates MUTE toggle ----------
+// ---------- Sh2: Macro UI preview — finger poised over VOICE: 100% toggle (not clicked yet!) ----------
 export const Sh2: React.FC<ShotProps> = ({ t, len }) => {
-  const clicked = clamp((t - 18) / 5);
-  const kx = lerp(1070, 1185, easeOut(clicked));
-  const tapY = t >= 15 && t < 24 ? Math.sin(((t - 15) / 9) * Math.PI) * 32 : 0;
+  const hover = Math.sin(t * 0.25) * 10;
+  const kx = 1070;
   return (
-    <g transform={camT(960, 540, kf(t, [[0, 0.98], [len, 1.08]]))}>
+    <g transform={camT(960, 540, kf(t, [[0, 0.98], [len, 1.06]]))}>
       <g filter="url(#blur16)">
         <g transform="translate(-400 -240) scale(1.6)">
-          <Classroom t={t + 46} id="mute2bg" />
+          <Classroom t={t + 44} id="mute2bg" />
         </g>
       </g>
       <rect x={-200} y={-200} width={2320} height={1480} fill="#080612" opacity={0.48} />
       <g transform="translate(960 470)">
-        <rect x={-310} y={-88} width={620} height={176} rx={88} fill={UI.pill} stroke={clicked > 0.5 ? CORAL : CYAN} strokeWidth={6} opacity={0.92} />
+        <rect x={-310} y={-88} width={620} height={176} rx={88} fill={UI.pill} stroke={CYAN} strokeWidth={6} opacity={0.92} />
         <text x={-255} y={14} fontFamily={FONT.ui} fontSize={40} fill={UI.text} letterSpacing={4}>
-          {clicked > 0.5 ? 'VOICE: OFF' : 'VOICE: 100%'}
+          VOICE: 100%
         </text>
-        <circle cx={kx - 960} cy={0} r={56} fill={clicked > 0.5 ? CORAL : CYAN} />
-        {clicked > 0.5 ? (
-          <path d={`M ${kx - 982} -20 L ${kx - 938} 20 M ${kx - 938} -20 L ${kx - 982} 20`} stroke="#0B0816" strokeWidth={10} strokeLinecap="round" />
-        ) : null}
+        <circle cx={kx - 960} cy={0} r={56} fill={CYAN} />
       </g>
-      <FocusRings x={1185} y={470} t={t - 18} r0={58} color={CORAL} />
-      <g transform={`translate(${kx + 18} ${730 - tapY})`} filter="url(#rimR)">
+      <FocusRings x={1070} y={470} t={t} r0={58} color={CYAN} />
+      <g transform={`translate(${kx + 18} ${730 + hover})`} filter="url(#rimR)">
         <path d="M 35 360 Q 10 150 -8 0" stroke={MO.line} strokeWidth={104} fill="none" strokeLinecap="round" />
         <path d="M 35 360 Q 10 150 -8 0" stroke={MO.hand} strokeWidth={86} fill="none" strokeLinecap="round" />
         <ellipse cx={-8} cy={-4} rx={36} ry={48} fill={MO.hand} stroke={MO.line} strokeWidth={8} />
@@ -74,20 +70,20 @@ export const Sh2: React.FC<ShotProps> = ({ t, len }) => {
   );
 };
 
-// ---------- Sh3: OTS over Mo's shoulder onto Sister; muted snap exact at f140 (t=58)! ----------
+// ---------- Sh3: OTS over Mo's shoulder onto Sister; muted snap exact at f140 (t=57)! ----------
 export const Sh3: React.FC<ShotProps> = ({ t, len, f }) => {
-  const isMuted = t >= 58;
-  const wave = Math.sin(t * 0.95) * (isMuted ? 10 : 14);
+  const isMuted = t >= 57;
+  const wave = Math.sin(t * 0.95) * (isMuted ? 8 : 14);
   const sisPose = poseAt(t, [
     { f: 0, p: { x: 1120, y: 760, scale: 1.9, facing: -1, yaw: -0.55, look: -0.8, armL: { a: 120, b: 35 }, armR: { a: 45, b: 20 }, handL: 'point' } },
-    { f: 58, p: { armL: { a: 138, b: 18 }, tilt: -6 }, ease: easeOut },
+    { f: 57, p: { armL: { a: 138, b: 18 }, tilt: -6 }, ease: easeOut },
   ]);
-  const ex = faceAt(t, [[0, 'happy'], [58, 'shock']]);
+  const ex = faceAt(t, [[0, 'happy'], [57, 'shock']]);
   return (
     <g transform={camT(kf(t, [[0, 1020], [len, 1050]]), 510, kf(t, [[0, 1.0], [len, 1.07]]))}>
       <g filter="url(#blur16)">
         <g transform="translate(-380 -180) scale(1.45)">
-          <Classroom t={t + 82} id="mute3" />
+          <Classroom t={t + 83} id="mute3" />
         </g>
       </g>
       <rect x={-100} y={-100} width={2120} height={1280} fill="#07050E" opacity={0.22} />
@@ -98,7 +94,7 @@ export const Sh3: React.FC<ShotProps> = ({ t, len, f }) => {
         shadow={0}
       />
       <Marquee x={890} y={240} w={450} h={490} t={t - 50} color={isMuted ? CORAL : CYAN} label={isMuted ? 'MUTED' : undefined} />
-      {isMuted ? <Tag x={1515} y={325} t={t - 58} text="0 dB" mark="x" markT={1} w={175} /> : null}
+      {isMuted ? <Tag x={1515} y={325} t={t - 57} text="VOICE: OFF" mark="x" markT={1} w={230} /> : null}
       <Foreground blur={12}>
         <path d="M -80 1220 Q 120 790 360 800 Q 560 810 660 1220 Z" fill="#120F1B" />
         <circle cx={320} cy={650} r={195} fill="#181423" />
@@ -109,14 +105,14 @@ export const Sh3: React.FC<ShotProps> = ({ t, len, f }) => {
   );
 };
 
-// ---------- Sh4: TitleCard wide in Kitchen — Mo dons shades at f149 (t=2), title_boom at f196 (t=49) ----------
+// ---------- Sh4: TitleCard wide in Kitchen — Mo dons shades at f149 (t=4), title_boom at f191 (t=46) ----------
 export const Sh4: React.FC<ShotProps> = ({ t, len, f }) => {
   const m = stand(KITCHEN, 0.5, 0.42, 0.65);
   const mug = islandTop(0.62, 0.45);
   const moPose = poseAt(t, [
     { f: 0, p: { x: m.x, y: m.y, scale: m.scale, yaw: 0.2, look: 0.2, glasses: 0, armR: { a: 28, b: 20 } } },
     { f: 4, p: { glasses: 1, armR: { a: 96, b: 96 }, headTilt: -5 }, ease: easeOut },
-    { f: 28, p: { glasses: 1, armR: { a: 36, b: 36 }, headTilt: -3 }, ease: easeOut },
+    { f: 24, p: { glasses: 1, armR: { a: 36, b: 36 }, headTilt: -3 }, ease: easeOut },
   ]);
   return (
     <g transform={camT(960, kf(t, [[0, 520], [len, 540]]), kf(t, [[0, 0.98], [len, 1.05]]))}>
@@ -124,7 +120,7 @@ export const Sh4: React.FC<ShotProps> = ({ t, len, f }) => {
       <Actor look={MO} pose={{ ...moPose, ...faceAt(t, [[0, 'smug'], [6, 'cool']]), talk: talkAt(f, mouthFrames, 'mo') }} rimId="rimR" shadow={0} />
       <KitchenIsland />
       <Mug x={mug.x} y={mug.y} rot={0} f={t} />
-      <TitleCard t={t - 8} lines={['WHAT IF YOU COULD', 'MUTE ANYONE?']} accent="ANYONE" accentT={41} size={92} y={175} />
+      <TitleCard t={t - 6} lines={['WHAT IF YOU COULD', 'MUTE ANYONE?']} accent="ANYONE" accentT={40} size={92} y={175} />
     </g>
   );
 };
@@ -166,7 +162,7 @@ export const Sh6: React.FC<ShotProps> = ({ t, len }) => {
 };
 
 // ---------- Sh7: Close-up Sister warning wildly on landing ----------
-export const Sh7: React.FC<ShotProps> = ({ t, len }) => {
+export const Sh7: React.FC<ShotProps> = ({ t, len, f }) => {
   const sc = 3.5 * (1 + 0.04 * clamp(t / len));
   const wv = Math.sin(t * 1.1) * 20;
   const sis: Pose = {
@@ -180,6 +176,7 @@ export const Sh7: React.FC<ShotProps> = ({ t, len }) => {
     armR: { a: 135 + wv, b: 20 },
     armL: { a: 110 - wv, b: 30 },
     ...faceAt(t, [[0, 'shock']]),
+    talk: talkAt(f, mouthFrames, 'sis'),
   };
   return (
     <g>
@@ -195,21 +192,21 @@ export const Sh7: React.FC<ShotProps> = ({ t, len }) => {
   );
 };
 
-// ---------- Sh8: Stairwell slip! Muffled warning ("Mo! Watch out, loose step!" f358..f434), Mo slips at end ----------
+// ---------- Sh8: Stairwell slip! Sister clearly framed left, Mo slips at t=24..31 (f367..f374) ----------
 export const Sh8: React.FC<ShotProps> = ({ t, len, f }) => {
-  const slip = easeOut(clamp((t - 50) / 18));
-  const moX = lerp(900, 1140, t / len);
+  const slip = easeOut(clamp((t - 20) / 11));
+  const moX = lerp(860, 1120, t / len);
   const moY = hipGround(moX) - LEG_LEN * 0.92 - Math.sin(slip * Math.PI) * 95;
   const mo = poseAt(t, [
     { f: 0, p: { x: moX, y: hipGround(moX) - LEG_LEN * 0.92, scale: 0.92, facing: 1, yaw: 0.8, glasses: 1 } },
-    { f: 50, p: { spin: 0, armL: { a: 25, b: 15 }, armR: { a: 25, b: 15 } } },
-    { f: 68, p: { spin: -78, tilt: -22, glasses: 0, legL: { a: 55, b: 10 }, legR: { a: -20, b: -35 }, armL: { a: 150, b: 20 }, armR: { a: 140, b: 35 } }, ease: easeOut },
+    { f: 20, p: { spin: 0, armL: { a: 25, b: 15 }, armR: { a: 25, b: 15 } } },
+    { f: 31, p: { spin: -78, tilt: -22, glasses: 0, legL: { a: 55, b: 10 }, legR: { a: -20, b: -35 }, armL: { a: 150, b: 20 }, armR: { a: 140, b: 35 } }, ease: easeOut },
   ]);
   const sis: Pose = {
     ...basePose,
-    x: 470,
-    y: 420 - LEG_LEN * 0.72,
-    scale: 0.72,
+    x: 530,
+    y: 420 - LEG_LEN * 0.78,
+    scale: 0.78,
     facing: 1,
     yaw: 0.7,
     look: 1,
@@ -220,49 +217,49 @@ export const Sh8: React.FC<ShotProps> = ({ t, len, f }) => {
     talk: talkAt(f, mouthFrames, 'sis'),
   };
   return (
-    <g transform={camT(kf(t, [[0, 920], [len, 1020]]), kf(t, [[0, 560], [len, 630]]), kf(t, [[0, 1.05], [len, 1.15]]))}>
+    <g transform={camT(kf(t, [[0, 880], [len, 940]]), kf(t, [[0, 540], [len, 580]]), kf(t, [[0, 0.96], [len, 1.02]]))}>
       <Stairwell t={t + 80} id="mute8" />
       <Actor look={SIS} pose={sis} rimId="rimRed" shadow={0.5} />
-      <Actor look={MO} pose={{ ...mo, x: moX, y: moY, ...faceAt(t, [[0, 'cool'], [52, 'shock']]) }} rimId="rimR" shadow={0.4} />
+      <Actor look={MO} pose={{ ...mo, x: moX, y: moY, ...faceAt(t, [[0, 'cool'], [22, 'shock']]) }} rimId="rimR" shadow={0.4} />
       <Banister />
     </g>
   );
 };
 
-// ---------- Sh9: Bottom crash landing at f436 (`t=8` exact tumble SFX + fx shake)! ----------
+// ---------- Sh9: Bottom crash landing at f374 (t=0 exact tumble SFX + fx shake)! ----------
 export const Sh9: React.FC<ShotProps> = ({ t, len }) => {
-  const land = clamp((t - 8) / 10);
-  const sq = t >= 8 ? settle(t - 8, 0.24, 1.2, 6) : 0;
+  const land = clamp(t / 9);
+  const sq = t >= 4 ? settle(t - 4, 0.24, 1.2, 6) : 0;
   const mo: Pose = {
     ...basePose,
-    x: lerp(1380, 1520, easeOut(land)),
+    x: lerp(1360, 1510, easeOut(land)),
     y: lerp(700, 910 - LEG_LEN * 0.72, easeOut(land)),
     scale: 0.92,
     yaw: -0.35,
-    spin: lerp(-72, -52, easeOut(land)) + (t >= 8 ? settle(t - 8, 12, 1.1, 7) : 0),
+    spin: lerp(-72, -52, easeOut(land)) + (t >= 4 ? settle(t - 4, 12, 1.1, 7) : 0),
     squash: Math.max(-0.1, sq),
     armL: { a: 78, b: 20 },
     armR: { a: 66, b: -15 },
     legL: { a: 32, b: -40 },
     legR: { a: -18, b: 25 },
-    ...faceAt(t, [[0, 'shock'], [8, 'dizzy']]),
+    ...faceAt(t, [[0, 'shock'], [4, 'dizzy']]),
   };
   return (
-    <g transform={camT(1430, 740, kf(t, [[0, 1.16], [len, 1.25]]))}>
+    <g transform={camT(1430, 740, kf(t, [[0, 1.16], [len, 1.24]]))}>
       <Stairwell t={t + 122} id="mute9" />
       <Actor look={MO} pose={mo} rimId="rimR" shadow={0.8} />
-      {t >= 8 ? <DizzyStars x={1435} y={655} t={t - 8} rx={115} ry={45} /> : null}
+      {t >= 4 ? <DizzyStars x={1435} y={655} t={t - 4} rx={115} ry={45} /> : null}
       <Banister />
     </g>
   );
 };
 
-// ---------- Sh10: Close-up Sister unmutes smugly ("Unmuted.") ----------
+// ---------- Sh10: Close-up Sister unmutes smugly ("Unmuted.") — VOICE ON cleanly left ----------
 export const Sh10: React.FC<ShotProps> = ({ t, len, f }) => {
-  const sc = 3.9 * (1 + 0.04 * clamp(t / len));
+  const sc = 3.6 * (1 + 0.04 * clamp(t / len));
   const sis: Pose = {
     ...basePose,
-    x: 960,
+    x: 1010,
     y: 590 - HEAD.y * sc,
     scale: sc,
     yaw: -0.25,
@@ -284,19 +281,20 @@ export const Sh10: React.FC<ShotProps> = ({ t, len, f }) => {
       </g>
       <rect x={0} y={0} width={1920} height={1080} fill="#080612" opacity={0.28} />
       <Actor look={SIS} pose={sis} rimId="rimR" shadow={0} />
-      <Sparkle x={1140} y={360} t={t} s={1.2} />
-      <Tag x={1350} y={360} t={t} text="VOICE ON" mark="check" markT={4} w={215} />
+      <Sparkle x={1220} y={360} t={t} s={1.2} />
+      <Tag x={450} y={320} t={t} text="VOICE ON" mark="check" markT={3} w={230} />
     </g>
   );
 };
 
-// ---------- Sh11: Two-shot on stairs ("Miss my voice yet?") ----------
+// ---------- Sh11: Two-shot on stairs ("Miss my voice yet?") — Sister grounded cleanly on step! ----------
 export const Sh11: React.FC<ShotProps> = ({ t, len, f }) => {
+  const sisX = 720;
   const sis: Pose = {
     ...basePose,
-    x: 680,
-    y: 780 - LEG_LEN * 1.12,
-    scale: 1.12,
+    x: sisX,
+    y: hipGround(sisX) - LEG_LEN * 0.96,
+    scale: 0.96,
     facing: 1,
     yaw: 0.45,
     look: 0.8,
@@ -308,8 +306,8 @@ export const Sh11: React.FC<ShotProps> = ({ t, len, f }) => {
   };
   const mo: Pose = {
     ...basePose,
-    x: 1240,
-    y: 880 - LEG_LEN * 0.92,
+    x: 1260,
+    y: 905 - LEG_LEN * 0.92,
     scale: 0.92,
     facing: -1,
     yaw: -0.6,

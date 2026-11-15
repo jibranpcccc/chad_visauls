@@ -281,7 +281,7 @@ const Face: React.FC<{ expr: Expr; blink: number; look: number; glasses: number;
     tired: <path d={`M -11 ${mY + 4} Q 0 ${mY} 11 ${mY + 4}`} stroke={ink} strokeWidth={5} fill="none" strokeLinecap="round" />,
   };
   const mouthNode =
-    talk > 0.12 && expr !== 'shock' ? (
+    talk > 0.12 ? (
       <path
         d={`M ${-(9 + talk * 5)} ${mY - 1} Q 0 ${mY + 2 + talk * 16} ${9 + talk * 5} ${mY - 1} Q 0 ${mY - 3 - talk * 2} ${-(9 + talk * 5)} ${mY - 1} Z`}
         fill={ink}

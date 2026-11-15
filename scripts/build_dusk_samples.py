@@ -63,7 +63,7 @@ async def synth_line(speaker: str, text: str, raw_path: Path):
 
 def process_clip(raw_path: Path, clean_path: Path, muffle: bool = False, cut_end_sec: float | None = None):
     filters = [
-        "silenceremove=start_periods=1:start_threshold=-42dB:detection=peak",
+        "silenceremove=start_periods=1:start_threshold=-42dB:detection=peak:stop_periods=-1:stop_duration=0.20:stop_threshold=-40dB",
         "areverse",
         "silenceremove=start_periods=1:start_threshold=-42dB:detection=peak",
         "areverse",
